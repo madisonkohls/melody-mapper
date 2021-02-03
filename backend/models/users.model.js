@@ -18,26 +18,13 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    lastName: {
-        type: String,
-        required: true
-    },
     emailAddress: {
         type: String,
         required: false
-    },
-    profilePicture: {
-        type: String,
-        required: false
-    },
-    personalityType: {
-        type: String,
-        required: true
-    },
+    }
 }, {
     timestamps: true,
 });
 
 const User = mongoose.model('User', userSchema);
-
 module.exports = User;
