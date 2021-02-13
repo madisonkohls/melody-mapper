@@ -52,7 +52,7 @@ function Main(){
 
     return(
         <div>
-            <h1>Welcome to Melody Tracker!</h1>
+            <h1>Welcome to Melody Mapper!</h1>
             <br />
             <img src="https://previews.123rf.com/images/sebra/sebra1507/sebra150700122/43575050-listening-music.jpg" width="300" height="200" alt="music pic here" />
             <br />
