@@ -21,6 +21,11 @@ const userSchema = new Schema({
     emailAddress: {
         type: String,
         required: false
+    },
+    musicGenre: {
+        type: String,
+        default: "Dance",
+        required: true
     }
 }, {
     timestamps: true,

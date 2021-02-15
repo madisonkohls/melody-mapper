@@ -18,7 +18,7 @@ function CreateAccount() {
 
         console.log(user)
         
-        axios.post('http://localhost:5000/users/createaccount', user)
+        axios.post('http://localhost:8000/users/createaccount', user)
             .then(res => handleRegister(res))
             .catch(error => handleErrorRegister(error))
     }

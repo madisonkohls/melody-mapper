@@ -134,6 +134,7 @@ router.route('/updateaccount/:id').post(async (req, res) => {
           user.password = req.body.password;
           user.firstName = req.body.firstName;
           user.emailAddress = req.body.emailAddress;
+          user.musicGenre = req.body.musicGenre;
 
           user.save()
               .then(async () => res.status(200).json({ user: user }))
