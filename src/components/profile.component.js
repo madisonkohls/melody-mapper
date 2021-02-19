@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import axios from 'axios'
+import Journal from "./journal"
 
 function Profile() {
     const [ username, setUsername ] = useState("")
@@ -31,10 +32,12 @@ function Profile() {
 
     return (
         <div>
-            <h3>Hello {firstName}!</h3>
+            <h2>Hello {firstName}!</h2>
             <p>Your music genre is {musicGenre}</p>
             <button onClick={onHomePage}>Log out</button>
+            <Journal />
         </div>
+
     )
 }
 
