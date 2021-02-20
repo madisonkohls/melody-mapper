@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from 'axios'
+import {Button} from 'reactstrap'
 
 function CreateAccount() {
     const [ username, setUsername ] = useState("")
@@ -17,7 +18,7 @@ function CreateAccount() {
         }
 
         console.log(user)
-        
+
         axios.post('http://localhost:8000/users/createaccount', user)
             .then(res => handleRegister(res))
             .catch(error => handleErrorRegister(error))
@@ -57,55 +58,50 @@ function CreateAccount() {
     }
 
     return(
-        <div>
-            <h3>Create New Account</h3>
-            <button onClick={onHomePage}>Already have an account? Log In</button>
-            <br />
-            <br />
-            <form onSubmit={onSubmit}>
-                <label>Username:
-                <input
-                    name="username" 
-                    value={username} 
-                    onChange={event => setUsername(event.target.value)} 
-                    placeholder="ex: johndoe" 
-                />
-                </label>
+        <div class="mainpage">
 
+            <h3 class="titleText topsection">Create New Account</h3>
+
+            <form class="loginForm" onSubmit={onSubmit}>
                 <label> Name:
-                <input 
-                    name="firstName" 
-                    value={firstName} 
-                    onChange={event => setFirstName(event.target.value)} 
-                    placeholder="ex: John" 
+                <input class="formfield"
+                    name="firstName"
+                    value={firstName}
+                    onChange={event => setFirstName(event.target.value)}
+                    placeholder="ex: John"
                 />
                 </label>
-                <br />
-                <br />
+                <label>Username:
+                <input class="formfield"
+                    name="username"
+                    value={username}
+                    onChange={event => setUsername(event.target.value)}
+                    placeholder="ex: johndoe"
+                />
+                </label>
 
                 <label>Email Address:
-                <input
-                    name="emailAddress" 
+                <input class="formfield"
+                    name="emailAddress"
                     value={emailAddress}
-                    onChange={event => setEmailAddress(event.target.value)} 
-                    placeholder="ex: johndoe@aol.com" 
+                    onChange={event => setEmailAddress(event.target.value)}
+                    placeholder="ex: johndoe@aol.com"
                 />
                 </label>
-                <br /> 
-                <br />
 
                 <label>Password:
-                <input type="password"
-                    name="password" 
-                    value={password} 
-                    onChange={event => setPassword(event.target.value)} 
-                    placeholder="ex: password123" 
+                <input class="formfield"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={event => setPassword(event.target.value)}
+                    placeholder="ex: password123"
                 />
                 </label>
-                <br />
-                <br />
-                
-                <button type="submit">Create Account</button>
+
+                <Button style={{backgroundColor:"#4B7268", margin: "5%"}} type="submit">Create Account</Button>
+                <Button onClick={onHomePage}>Already have an account? Log In</Button>
+
             </form>
         </div>
     )

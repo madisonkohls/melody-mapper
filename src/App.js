@@ -5,6 +5,7 @@ import Main from "./components/main.component"
 import CreateAccount from "./components/create-account.component"
 import Questions from "./components/questions.component"
 import Profile from "./components/profile.component"
+import './App.css';
 
 
 
