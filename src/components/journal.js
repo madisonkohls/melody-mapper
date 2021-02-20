@@ -23,10 +23,14 @@ class Journal extends Component {
   render() {
     const { entries } = this.state;
     return (
-      <div className = "Journal">
-        <h2> Add a New Entry </h2>
+      <div class = "journal">
+        <div class = "journalelement">
+        <h2 class = "titleText"> add a new entry </h2>
         <Form handleSubmit={this.handleSubmit}/>
+        </div>
+        <div class = "journalelement">
         <Entries entryData={entries} removeEntry={this.removeEntry}/>
+        </div>
       </div>
     )
   }
