@@ -35,7 +35,7 @@ function Profile() {
             <h2>Hello {firstName}!</h2>
             <p>Your music genre is {musicGenre}</p>
             <button onClick={onHomePage}>Log out</button>
-            <Journal />
+            <Journal userID={params.id} />
         </div>
 
     )

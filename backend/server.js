@@ -17,7 +17,9 @@ mongoose.connect( uri_key, { useNewUrlParser: true, useUnifiedTopology: true})
 
 //create routes to our models
 const usersRouter = require('./routes/users');
+const journalsRouter = require('./routes/journals');
 
+app.use('/journals', journalsRouter);
 app.use('/users', usersRouter);
 
 //port connection

@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const journalSchema = new Schema({
-    username: {
+    userid: {
+        type: String,
+        required: true
+    },
+    title: {
         type: String,
         required: true
     },
@@ -10,7 +14,7 @@ const journalSchema = new Schema({
         type: String,
         required: true
     },
-    date: { type: Date, 
+    date: { type: Date, //change back to date
         required: true 
     },
 }, {

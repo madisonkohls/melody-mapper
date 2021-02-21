@@ -2,11 +2,16 @@ import React, { Component } from "react"
 import Entries from "./entries"
 import Form from "./form"
 
+//import axios from 'axios'
+
 class Journal extends Component {
+  userID = this.props.userID;
   state = {
     entries:[
-    ]
+    ],
+
   }
+
   removeEntry = index => {
     const { entries } = this.state
 
@@ -16,7 +21,11 @@ class Journal extends Component {
       })
     })
   }
+/*
+
+*/
   handleSubmit = entry => {
+
     this.setState({ entries: [...this.state.entries, entry]})
   }
 
@@ -25,7 +34,7 @@ class Journal extends Component {
     return (
       <div className = "Journal">
         <h2> Add a New Entry </h2>
-        <Form handleSubmit={this.handleSubmit}/>
+        <Form handleSubmit={this.handleSubmit} userid= {this.userID}/>
         <Entries entryData={entries} removeEntry={this.removeEntry}/>
       </div>
     )

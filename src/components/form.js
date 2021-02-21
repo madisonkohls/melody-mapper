@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import {Button, FormGroup, Input, Label} from 'reactstrap'
+import axios from 'axios'
+
 class Form extends Component {
   constructor(props) {
     super(props)
@@ -16,8 +18,17 @@ class Form extends Component {
     })
   }
   submitForm = () => {
-        this.props.handleSubmit(this.state)
-        this.setState(this.initialState)
+    const journal = {
+      userid : this.props.userid, //this.userid
+      text : this.state.body,
+      date : new Date(),
+      title: this.state.title
+    }
+    axios.post('http://localhost:8000/journals/add', journal)
+      .then(res => console.log(res.data))
+
+    this.props.handleSubmit(this.state)
+    this.setState(this.initialState)
   }
   render() {
     const { title, body } = this.state;
