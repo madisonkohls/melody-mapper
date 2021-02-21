@@ -60,6 +60,10 @@ code {
   margin: 20px;
   overflow-wrap: break-word;
 }
+.spotify{
+  margin-top: 5%;
+  text-align: center;
+}
 .date {
   position: absolute;
   top: 20px;

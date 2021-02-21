@@ -27,6 +27,9 @@ class Journal extends Component {
         <div class = "journalelement">
         <h2 class = "titleText"> add a new entry </h2>
         <Form handleSubmit={this.handleSubmit}/>
+        <div class = "spotify">
+        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX92MLsP3K1fI" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
         </div>
         <div class = "journalelement">
         <Entries entryData={entries} removeEntry={this.removeEntry}/>
