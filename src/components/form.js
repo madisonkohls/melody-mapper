@@ -41,7 +41,7 @@ class Form extends Component {
             type = "text"
             name = "title"
             id = "title"
-            placeholder = "Enter title"
+            placeholder = "Your title here"
             value = {title}
             onChange = {this.handleChange} />
           </FormGroup>
@@ -56,7 +56,7 @@ class Form extends Component {
               onChange = {this.handleChange} />
           </FormGroup>
         </form>
-        <Button onClick={this.submitForm}>Submit</Button>
+        <Button style={{backgroundColor:"#4B7268"}} onClick={this.submitForm}>Submit</Button>
       </div>
     )
   }

@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import axios from 'axios'
+import clipart from '../assets/loginPage.svg';
+import {Button} from 'reactstrap'
 
 function Main(){
     const [ username, setUsername ] = useState("")
@@ -51,34 +53,43 @@ function Main(){
     }
 
     return(
-        <div>
-            <h1>Welcome to Melody Mapper!</h1>
+        <div class="mainpage">
+            <div class="clipart-container">
+              <img id="clipart" src={clipart} alt="People listening to music" />
+            </div>
+
+            <div class="titleText">
+            <h1>melody mapper</h1>
+            </div>
+            <div>
+              <form class = "loginForm" onSubmit={onSubmit}>
+              <div>
+              <label class="formfield">Username: </label>
+                  <input type="text"
+                      name="username"
+                      value={username}
+                      onChange={event => setUsername(event.target.value)}
+                      placeholder="ex: eggyboy"
+                      required
+                  />
+              </div>
+              <div>
+                  <label class="formfield">Password: </label>
+                  <input type="password"
+                      name="password"
+                      value={password}
+                      onChange={event => setPassword(event.target.value)}
+                      placeholder="ex: p@ssw0rd"
+                      required
+                  />
+              </div>
+              <div>
+                  <Button style={{backgroundColor:"#4B7268", margin: "5%"}} type="submit">Login</Button>
+              </div>
+              </form>
+            </div>
             <br />
-            <img src="https://previews.123rf.com/images/sebra/sebra1507/sebra150700122/43575050-listening-music.jpg" width="300" height="200" alt="music pic here" />
-            <br />
-            <form onSubmit={onSubmit}>
-            <label>Username: </label>
-                <input type="text"
-                    name="username" 
-                    value={username} 
-                    onChange={event => setUsername(event.target.value)} 
-                    placeholder="ex: eggyboy" 
-                    required
-                />
-                <br />
-                <label>Password: </label>
-                <input type="password"
-                    name="password" 
-                    value={password}
-                    onChange={event => setPassword(event.target.value)} 
-                    placeholder="ex: p@ssw0rd"
-                    required
-                />
-                <br />
-                <button type="submit">Login</button>
-            </form>
-            <br />
-            <button onClick={onRegister}>Create an Account</button>
+            <Button onClick={onRegister}>Create an Account</Button>
         </div>
     )
 }

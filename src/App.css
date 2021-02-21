@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #E5E5E5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.mainpage {
+  font: 'Roboto';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.titleText {
+  color: #4B7268;
+  text-align: center;
+  font-weight: bold;
+}
+.clipart-container {
+  align-self: center;
+  padding: 20px;
+  padding-top: 50px;
+}
+#clipart {
+  height: auto;
+  width: 400px;
+  border-radius: 7px;
+}
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.formfield {
+  margin: 10px;
+}
+
+.logoutbutton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: auto;
+}
+
+.journal {
+  display: flex;
+}
+.journalelement {
+  width: 50%;
+  margin: 20px;
+  overflow-wrap: break-word;
+}
+.spotify{
+  margin-top: 5%;
+  text-align: center;
+}
+.date {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: auto;
+  font-style: italic;
+}
+.topsection {
+   padding: 5%;
+}
+.toppadding {
+   padding-top: 5%;
+}
+.questionfield {
+  padding-bottom: 1%;
+}
+#fader {
+  -webkit-appearance: none;
+  width: 300px;
+  height: 25px;
+  margin-top: 2px;
+  background: #E5E5E5;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+#fader:hover {
+  opacity: 1;
+}
+
+#fader::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4B7268;
+  cursor: pointer;
+}
+
+.formelement {
+  display: flex;
+  margin: 10px;
+  margin-bottom: 30px;
+}

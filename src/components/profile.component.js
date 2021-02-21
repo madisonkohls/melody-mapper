@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import axios from 'axios'
 import Journal from "./journal"
+import {Button} from 'reactstrap'
+import '../App.css';
 
 function Profile() {
     const [ username, setUsername ] = useState("")
@@ -31,13 +33,23 @@ function Profile() {
     }
 
     return (
-        <div>
-            <h2>Hello {firstName}!</h2>
+      <div>
+        <div class = "mainpage">
+            <div class = "logoutbutton">
+            <Button style={{backgroundColor:"#4B7268"}} onClick={onHomePage}>Log out</Button>
+            </div>
+            <div class = "topsection">
+            <h2 class="titleText">hey {firstName}!</h2>
             <p>Your music genre is {musicGenre}</p>
+<<<<<<< HEAD
             <button onClick={onHomePage}>Log out</button>
             <Journal userID={params.id} />
+=======
+            </div>
+>>>>>>> origin
         </div>
-
+        <Journal />
+      </div>
     )
 }
 
