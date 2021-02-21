@@ -41,15 +41,11 @@ function Profile() {
             <div class = "topsection">
             <h2 class="titleText">hey {firstName}!</h2>
             <p>Your music genre is {musicGenre}</p>
-<<<<<<< HEAD
-            <button onClick={onHomePage}>Log out</button>
-            <Journal userID={params.id} />
-=======
             </div>
->>>>>>> origin
         </div>
-        <Journal />
+        <Journal userID={params.id} />
       </div>
+
     )
 }
 

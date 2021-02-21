@@ -101,33 +101,36 @@ function Questions() {
     }, [])
 
     return (
+
         <div class="mainpage">
             <h3 class="toppadding titleText">hi {firstName}, welcome to melody mapper!</h3>
-            <h6 class="titleText" style={{fontStyle: "italic", width:"50%"}}>before you join us, we'll need you to rank the following statements from 0 (strongly disagree) to 5 (strongly agree)!</h6>
+            <h6 class="titleText" style={{fontStyle: "italic", width:"50%"}}>before you join us, we'll need you to rank the following statements from 1 (strongly disagree) to 5 (strongly agree).</h6>
             <Button style={{backgroundColor:"#4B7268", margin: "2%"}} onClick={deleteAccount}>what? no way!</Button>
 
             <br/>
             <br/>
             <form class="loginForm" onSubmit={onSubmit}>
                 <div class="formelement">
-                <label>I enjoy horror movies:</label>
-                <br/>
-                <input class="formfield"
+                    <label>I enjoy horror movies:</label>
+                    <br/>
+                    <input
                     type="range"
                     id="fader"
                     value={responses[0]}
                     onChange={event => changeResponses(0, event.target.value)}
-                    min="1" max="5"></input>
+                    min="1" max="5" />
+                    <span >{responses[0]}</span>
                 </div>
                 <div class="formelement">
-                <label>I enjoy romantic movies:  </label>
-                    <br/>
-                    <input class="formfield"
+                    <label>I enjoy romantic movies:  </label>
+                        <br/>
+                        <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[1]}
                         onChange={event => changeResponses(1, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5" />
+                        <span >{responses[1]}</span>
                 </div>
                 <div class="formelement">
                 <label>I enjoy action movies: </label>
@@ -137,7 +140,8 @@ function Questions() {
                         id="fader"
                         value={responses[2]}
                         onChange={event => changeResponses(2, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[2]}</span>
                 </div>
                 <div class="formelement">
                 <label>I enjoy learning about history:
@@ -146,7 +150,8 @@ function Questions() {
                         id="fader"
                         value={responses[3]}
                         onChange={event => changeResponses(3, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[3]}</span>
                 </label>
                 </div>
                 <div class="formelement">
@@ -156,7 +161,8 @@ function Questions() {
                         id="fader"
                         value={responses[4]}
                         onChange={event => changeResponses(4, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[4]}</span>
                 </label>
                 </div>
                 <div class="formelement">
@@ -166,7 +172,8 @@ function Questions() {
                         id="fader"
                         value={responses[5]}
                         onChange={event => changeResponses(5, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[5]}</span>
                 </label>
                 </div>
                 <div class="formelement">
@@ -176,7 +183,8 @@ function Questions() {
                         id="fader"
                         value={responses[6]}
                         onChange={event => changeResponses(6, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[6]}</span>
                 </label>
                 </div>
                 <div class="formelement">
@@ -186,10 +194,12 @@ function Questions() {
                         id="fader"
                         value={responses[7]}
                         onChange={event => changeResponses(7, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[7]}</span>
                 </label>
                 </div>
                 <div class="formelement">
+                <span>
                 <label>I am very patient:
                     <input class="formfield"
                         type="range"
@@ -197,7 +207,9 @@ function Questions() {
                         value={responses[8]}
                         onChange={event => changeResponses(8, event.target.value)}
                         min="1" max="5"></input>
+                        <span >{responses[8]}</span>
                 </label>
+                </span>
                 </div>
                 <div class="formelement">
                 <label>If I find something that doesn't belong to me I will hand it in:
@@ -206,7 +218,8 @@ function Questions() {
                         id="fader"
                         value={responses[9]}
                         onChange={event => changeResponses(9, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[9]}</span>
                 </label>
                 </div>
                 <Button type="submit" style={{backgroundColor:"#4B7268", margin: "2%"}}>Generate Music Preference</Button>
