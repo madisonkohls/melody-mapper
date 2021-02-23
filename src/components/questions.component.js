@@ -111,7 +111,7 @@ function Questions() {
             <br/>
             <form class="loginForm" onSubmit={onSubmit}>
                 <div class="formelement">
-                    <label>I enjoy horror movies:</label>
+                    <label>I enjoy Sci-fi movies:</label>
                     <br/>
                     <input
                     type="range"
@@ -122,7 +122,7 @@ function Questions() {
                     <span >{responses[0]}</span>
                 </div>
                 <div class="formelement">
-                    <label>I enjoy romantic movies:  </label>
+                    <label>I enjoy reading poetry:  </label>
                         <br/>
                         <input class="formfield"
                         type="range"
@@ -133,7 +133,7 @@ function Questions() {
                         <span >{responses[1]}</span>
                 </div>
                 <div class="formelement">
-                <label>I enjoy action movies: </label>
+                <label>I am interested in cars: </label>
                     <br />
                     <input class="formfield"
                         type="range"
@@ -144,7 +144,7 @@ function Questions() {
                         <span >{responses[2]}</span>
                 </div>
                 <div class="formelement">
-                <label>I enjoy learning about history:
+                <label>I enjoy dancing:
                     <input class="formfield"
                         type="range"
                         id="fader"
@@ -155,7 +155,7 @@ function Questions() {
                 </label>
                 </div>
                 <div class="formelement">
-                <label>I enjoy playing musical instruments:
+                <label>I enjoy following celebrity lifestyles:
                     <input class="formfield"
                         type="range"
                         id="fader"
@@ -166,7 +166,7 @@ function Questions() {
                 </label>
                 </div>
                 <div class="formelement">
-                <label>I enjoy learning about science and technology:
+                <label>I am interested in theatre:
                     <input class="formfield"
                         type="range"
                         id="fader"
@@ -177,7 +177,7 @@ function Questions() {
                 </label>
                 </div>
                 <div class="formelement">
-                <label>I enjoy socializing:
+                <label>I am afraid of spiders:
                     <input class="formfield"
                         type="range"
                         id="fader"
@@ -188,7 +188,7 @@ function Questions() {
                 </label>
                 </div>
                 <div class="formelement">
-                <label>I enjoy extreme sports:
+                <label>I always make a list so I do not forget anything:
                     <input class="formfield"
                         type="range"
                         id="fader"
@@ -200,7 +200,7 @@ function Questions() {
                 </div>
                 <div class="formelement">
                 <span>
-                <label>I am very patient:
+                <label>I believe in God:
                     <input class="formfield"
                         type="range"
                         id="fader"
@@ -212,7 +212,7 @@ function Questions() {
                 </span>
                 </div>
                 <div class="formelement">
-                <label>If I find something that doesn't belong to me I will hand it in:
+                <label>I always make sure I connect with the righht people:
                     <input class="formfield"
                         type="range"
                         id="fader"
