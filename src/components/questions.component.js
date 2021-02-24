@@ -54,7 +54,7 @@ function Questions() {
     let handleSuccess = (res) => {
         console.log(res)
         console.log('Successful Response')
-        window.location = '/profile/'+res.data.user._id
+        window.location = '/mood/'+res.data.user._id
     }
 
     let handleErrorEdit = (error) => {
