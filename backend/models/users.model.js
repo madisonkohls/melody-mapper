@@ -29,7 +29,6 @@ const userSchema = new Schema({
     },
     mood: {
         type: String,
-        default: "Neutral",
         required: false
     }
 }, {
