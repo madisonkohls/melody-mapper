@@ -37,6 +37,15 @@ function Mood() {
             <div class = "logoutbutton">
             <Button style={{backgroundColor:"#4B7268"}} onClick={onHomePage}>Log out</Button>
             </div>
+            <div class = "moodbutton">
+            <Button style={{backgroundColor:"#99FF66"}} onClick={onHomePage}>Log out</Button>
+            </div>
+            <div class = "moodbutton">
+            <Button style={{backgroundColor:"#FFFF66"}} onClick={onHomePage}>Log out</Button>
+            </div>
+            <div class = "moodbutton">
+            <Button style={{backgroundColor:"#C2300A"}} onClick={onHomePage}>Log out</Button>
+            </div>
             <div class = "topsection">
             <h2 class="titleText">hey {firstName}!</h2>
             <p>Enter your mood here!</p>
