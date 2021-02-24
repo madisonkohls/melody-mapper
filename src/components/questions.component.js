@@ -212,7 +212,7 @@ function Questions() {
                 </span>
                 </div>
                 <div class="formelement">
-                <label>I always make sure I connect with the righht people:
+                <label>I always make sure I connect with the right people:
                     <input class="formfield"
                         type="range"
                         id="fader"
