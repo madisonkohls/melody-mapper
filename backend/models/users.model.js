@@ -26,6 +26,11 @@ const userSchema = new Schema({
         type: String,
         default: "Dance",
         required: true
+    },
+    mood: {
+        type: String,
+        default: "Neutral",
+        required: false
     }
 }, {
     timestamps: true,
