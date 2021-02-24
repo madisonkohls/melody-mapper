@@ -1,7 +1,9 @@
+#dependencies
 node_modules
-node_modules
-node_modules/
+/backend/node_modules
+/mlmodel/__pycache__
+
+#other . files
 .eslintcache
 .DS_Store
 .eslintcache
-mlmodel/__pycache__/mlmodel.cpython-38.pyc
