@@ -105,13 +105,13 @@ function Mood() {
             <p>How are you feeling today?</p>
             </div>
             <div class = "moodbutton">
-            <Button style={{backgroundColor:"#CCFFCC"}} onClick={onMoodClick1}>Good :)</Button>
+            <Button style={{backgroundColor:"#339966"}} onClick={onMoodClick1}>Good :)</Button>
             </div>
             <div class = "moodbutton">
-            <Button style={{backgroundColor:"#FFFFCC"}} onClick={onMoodClick2}>Neutral :/</Button>
+            <Button style={{backgroundColor:"#e6e600"}} onClick={onMoodClick2}>Neutral :/</Button>
             </div>
             <div class = "moodbutton">
-            <Button style={{backgroundColor:"#FF9999"}} onClick={onMoodClick3}>Bad :(</Button>
+            <Button style={{backgroundColor:"#b30000"}} onClick={onMoodClick3}>Bad :(</Button>
             </div>
         </div>
       </div>
