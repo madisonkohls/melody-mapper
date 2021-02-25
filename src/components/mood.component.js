@@ -20,8 +20,8 @@ function Mood() {
                 setUsername(user.username)
                 setFirstName(user.firstName)
                 setEmailAddress(user.emailAddress)
+                setPassword(user.password)
                 setMusicGenre(user.musicGenre)
-                setMood(user.mood)
             })
             .catch(function(error){
                 console.log(error)
@@ -34,7 +34,7 @@ function Mood() {
         window.location = '/'
     }
     
-    function onMoodClick1 (event) {
+    let onMoodClick1 = (event) => {
         event.preventDefault();
         updateAccount("happy");
     }
