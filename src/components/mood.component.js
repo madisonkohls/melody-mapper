@@ -44,7 +44,7 @@ function Mood() {
             password: password,
             firstName: firstName,
             emailAddress: emailAddress,
-            musicGenre: genre
+            musicGenre: genre,
             mood: mood
             
         }
