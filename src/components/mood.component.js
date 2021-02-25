@@ -6,9 +6,10 @@ import '../App.css';
 
 function Mood() {
     const [ username, setUsername ] = useState("")
+    const [ password, setPassword ] = useState("")
     const [ firstName, setFirstName ] = useState("")
     const [ emailAddress, setEmailAddress ] = useState("")
-    const [ musicGenre, setMusicGenre ] = useState("")
+    const [ genre, setMusicGenre ] = useState("")
     const [ mood, setMood ] = useState(0)
     let params = useParams()
 
