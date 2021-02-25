@@ -10,6 +10,7 @@ function Profile() {
     const [ firstName, setFirstName ] = useState("")
     const [ emailAddress, setEmailAddress ] = useState("")
     const [ musicGenre, setMusicGenre ] = useState(0)
+    const [ mood, setMood ] = useState("")
     let params = useParams()
 
     useEffect(() => {
@@ -20,6 +21,7 @@ function Profile() {
                 setFirstName(user.firstName)
                 setEmailAddress(user.emailAddress)
                 setMusicGenre(user.musicGenre)
+                setMood(user.mood)
             })
             .catch(function(error){
                 console.log(error)
@@ -41,6 +43,7 @@ function Profile() {
             <div class = "topsection">
             <h2 class="titleText">hey {firstName}!</h2>
             <p>Your music genre is {musicGenre}</p>
+            <p>Today you are feeling {mood}</p>
             </div>
         </div>
         <Journal userID={params.id} />

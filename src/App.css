@@ -52,6 +52,11 @@ code {
   width: auto;
 }
 
+.moodbutton {
+  position: static;
+  width: auto;
+}
+
 .journal {
   display: flex;
 }

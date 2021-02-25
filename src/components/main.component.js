@@ -43,7 +43,7 @@ function Main(){
     let onLogin = (res) => {
         console.log(res)
         console.log('Successful login for '+res.data.user.username)
-        window.location = '/profile/'+res.data.user._id
+        window.location = '/mood/'+res.data.user._id
     }
 
     let onRegister = (event) => {
