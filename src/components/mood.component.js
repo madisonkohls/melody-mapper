@@ -10,7 +10,6 @@ function Mood() {
     const [ firstName, setFirstName ] = useState("")
     const [ emailAddress, setEmailAddress ] = useState("")
     const [ genre, setMusicGenre ] = useState("")
-    const [ mood, setMood ] = useState(0)
     let params = useParams()
 
     useEffect(() => {
