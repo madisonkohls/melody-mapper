@@ -36,7 +36,17 @@ function Mood() {
     
     let onMoodClick1 = (event) => {
         event.preventDefault();
-        updateAccount("happy");
+        updateAccount("good");
+    }
+    
+    let onMoodClick2 = (event) => {
+        event.preventDefault();
+        updateAccount("neutral");
+    }
+    
+    let onMoodClick3 = (event) => {
+        event.preventDefault();
+        updateAccount("bad");
     }
 
     let updateAccount = (mood) => {
@@ -98,10 +108,10 @@ function Mood() {
             <Button style={{backgroundColor:"#CCFFCC"}} onClick={onMoodClick1}>Good :)</Button>
             </div>
             <div class = "moodbutton">
-            <Button style={{backgroundColor:"#FFFFCC"}} onClick={onHomePage}>Neutral :/</Button>
+            <Button style={{backgroundColor:"#FFFFCC"}} onClick={onMoodClick2}>Neutral :/</Button>
             </div>
             <div class = "moodbutton">
-            <Button style={{backgroundColor:"#FF9999"}} onClick={onHomePage}>Bad :(</Button>
+            <Button style={{backgroundColor:"#FF9999"}} onClick={onMoodClick3}>Bad :(</Button>
             </div>
         </div>
       </div>
