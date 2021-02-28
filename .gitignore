@@ -1,4 +1,15 @@
+#dependencies
 node_modules
-node_modules
-node_modules/
+/backend/node_modules
+/backend/.DS_Store
+/public/.DS_Store
+/src/.DS_Store
+/src/components/.DS_Store
+/src/components/.Rhistory
+/mlmodel/__pycache__
+/mlmodel/.DS_Store
+
+#other . files
+.eslintcache
+.DS_Store
 .eslintcache

@@ -48,6 +48,7 @@ function Profile() {
         </div>
         <Journal userID={params.id} />
       </div>
+
     )
 }
 

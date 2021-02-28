@@ -54,7 +54,7 @@ function Questions() {
     let handleSuccess = (res) => {
         console.log(res)
         console.log('Successful Response')
-        window.location = '/profile/'+res.data.user._id
+        window.location = '/mood/'+res.data.user._id
     }
 
     let handleErrorEdit = (error) => {
@@ -101,112 +101,125 @@ function Questions() {
     }, [])
 
     return (
+
         <div class="mainpage">
             <h3 class="toppadding titleText">hi {firstName}, welcome to melody mapper!</h3>
-            <h6 class="titleText" style={{fontStyle: "italic", width:"50%"}}>before you join us, we'll need you to rank the following statements from 0 (strongly disagree) to 5 (strongly agree)!</h6>
+            <h6 class="titleText" style={{fontStyle: "italic", width:"50%"}}>before you join us, we'll need you to rank the following statements from 1 (strongly disagree) to 5 (strongly agree).</h6>
             <Button style={{backgroundColor:"#4B7268", margin: "2%"}} onClick={deleteAccount}>what? no way!</Button>
 
             <br/>
             <br/>
             <form class="loginForm" onSubmit={onSubmit}>
                 <div class="formelement">
-                <label>I enjoy horror movies:</label>
-                <br/>
-                <input class="formfield"
+                    <label>I enjoy Sci-fi movies:</label>
+                    <br/>
+                    <input
                     type="range"
                     id="fader"
                     value={responses[0]}
                     onChange={event => changeResponses(0, event.target.value)}
-                    min="1" max="5"></input>
+                    min="1" max="5" />
+                    <span >{responses[0]}</span>
                 </div>
                 <div class="formelement">
-                <label>I enjoy romantic movies:  </label>
-                    <br/>
-                    <input class="formfield"
+                    <label>I enjoy reading poetry:  </label>
+                        <br/>
+                        <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[1]}
                         onChange={event => changeResponses(1, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5" />
+                        <span >{responses[1]}</span>
                 </div>
                 <div class="formelement">
-                <label>I enjoy action movies: </label>
+                <label>I am interested in cars: </label>
                     <br />
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[2]}
                         onChange={event => changeResponses(2, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[2]}</span>
                 </div>
                 <div class="formelement">
-                <label>I enjoy learning about history:
+                <label>I enjoy dancing:
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[3]}
                         onChange={event => changeResponses(3, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[3]}</span>
                 </label>
                 </div>
                 <div class="formelement">
-                <label>I enjoy playing musical instruments:
+                <label>I enjoy following celebrity lifestyles:
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[4]}
                         onChange={event => changeResponses(4, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[4]}</span>
                 </label>
                 </div>
                 <div class="formelement">
-                <label>I enjoy learning about science and technology:
+                <label>I am interested in theatre:
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[5]}
                         onChange={event => changeResponses(5, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[5]}</span>
                 </label>
                 </div>
                 <div class="formelement">
-                <label>I enjoy socializing:
+                <label>I am afraid of spiders:
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[6]}
                         onChange={event => changeResponses(6, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[6]}</span>
                 </label>
                 </div>
                 <div class="formelement">
-                <label>I enjoy extreme sports:
+                <label>I always make a list so I do not forget anything:
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[7]}
                         onChange={event => changeResponses(7, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[7]}</span>
                 </label>
                 </div>
                 <div class="formelement">
-                <label>I am very patient:
+                <span>
+                <label>I believe in God:
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[8]}
                         onChange={event => changeResponses(8, event.target.value)}
                         min="1" max="5"></input>
+                        <span >{responses[8]}</span>
                 </label>
+                </span>
                 </div>
                 <div class="formelement">
-                <label>If I find something that doesn't belong to me I will hand it in:
+                <label>I always make sure I connect with the right people:
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[9]}
                         onChange={event => changeResponses(9, event.target.value)}
-                        min="1" max="5"></input>
+                        min="1" max="5"/>
+                        <span >{responses[9]}</span>
                 </label>
                 </div>
                 <Button type="submit" style={{backgroundColor:"#4B7268", margin: "2%"}}>Generate Music Preference</Button>
