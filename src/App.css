@@ -52,14 +52,12 @@ code {
   width: auto;
 }
 
-.moodbutton:hover {
+.moodbutton {
   position: static;
   width: auto;
-  font-size: 20px;
+  font-size: 24px;
   padding: 25px 40px;
   border-radius: 12px;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  margin-top: 20px;
 }
 
 .journal {
