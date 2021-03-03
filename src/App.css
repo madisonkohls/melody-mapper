@@ -118,3 +118,16 @@ code {
   margin: 10px;
   margin-bottom: 30px;
 }
+
+.searchbar{
+  width: 99%;
+}
+.searchcontainer {
+  width: 100%;
+  border-color: #4B7268;
+  margin: 10px;
+}
+
+.newentry{
+  margin: 20px;
+}

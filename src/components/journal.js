@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import Entries from "./entries"
 import Form from "./form"
+import SearchField from "react-search-field";
 
 //import axios from 'axios'
 
@@ -28,6 +29,10 @@ class Journal extends Component {
 
     this.setState({ entries: [...this.state.entries, entry]})
   }
+  handleSearchInputChange = entry => {
+    //do the search
+    //this.setState({ entries: //search results
+  }
 
   render() {
     const { entries } = this.state;
@@ -41,7 +46,15 @@ class Journal extends Component {
         </div>
         </div>
         <div class = "journalelement">
-        <Entries entryData={entries} removeEntry={this.removeEntry}/>
+          <div class = "searchcontainer">
+              <SearchField
+                placeholder="search entries by title"
+                onChange={this.handleSearchInputChange}
+                searchText=""
+                classNames="searchbar"
+                />
+            </div>
+            <Entries entryData={entries} removeEntry={this.removeEntry}/>
         </div>
       </div>
     )

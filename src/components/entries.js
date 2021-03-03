@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import {Button, Col, Row, Container} from 'reactstrap'
 
+
+
 const EntryBody = props => {
   const date = new Date();
   const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric'});
@@ -33,11 +35,13 @@ const EntryBody = props => {
 }
 const Entries = (props) =>{
   const { entryData, removeEntry } = props;
+
   return (
     <div className = "Entries">
-      <h2 class="titleText"> my entries </h2>
+      <h2 class="titleText"> today's entries </h2>
       <EntryBody entryData = {entryData} removeEntry={removeEntry}/>
     </div>
   )
 }
+
 export default Entries;
