@@ -31,15 +31,15 @@ pip install -U flask-cors
 pip install sklearn
 FLASK_APP=mlmodel.py flask run
 ```
-5. Run the backend server by opening another CLI app and running:
+5. Run the backend server by opening another CLI app in the directory melody-mapper and running:
 ```
 cd melody-mapper
 cd backend
 nodemon server
 ```
-6. Run the site on your browser by opening another CLI app and running:
+6. Run the site on your browser by opening another CLI app in. the directory melody-mapper and running:
 ```
 cd melody-mapper
 npm start
 ```
-If a warning indicates you cannot resolve react-router-dom, you need to then install `npm install react-router-dom --save`.
+If a warning indicates you cannot resolve react-router-dom, you need to then issue: `npm install react-router-dom --save`.
