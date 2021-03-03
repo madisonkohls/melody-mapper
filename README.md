@@ -21,6 +21,7 @@ cd backend
 npm install
 sudo npm install -g nodemon
 ```
+Note that `sudo` is needed if you are not the root user (`sudo` installs to folders which your default user may not have access to by default)
 4. To run the ml model server, issue the following installations and commands:
 ```
 cd ..
