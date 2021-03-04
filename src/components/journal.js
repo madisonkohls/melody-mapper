@@ -28,18 +28,18 @@ class Journal extends Component {
     })
   }
 
-  editEntry = index => {
-    const { entries } = this.state
+  editEntry = (index, title, body) => {
+      const { entries } = this.state
 
-    this.setState({
-      currTitle: "editing title",
-      currBody: "editing body",
-      addEdit: "edit an",
-      entries: entries.filter ((entry, i) => {
-        return i != index
+      this.setState({
+        currTitle: title,
+        currBody: body,
+        addEdit: "edit an",
+        entries: entries.filter ((entry, i) => {
+          return i != index
+        })
       })
-    })
-  }
+    }
 /*
 
 */
@@ -62,6 +62,7 @@ class Journal extends Component {
         <div class = "journalelement">
         <h2 class = "titleText"> {this.state.addEdit} entry </h2>
         <Form handleSubmit={this.handleSubmit} userid={this.userID} title={this.state.currTitle} body = {this.state.currBody} />
+
         <div class = "spotify">
         <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX92MLsP3K1fI" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>

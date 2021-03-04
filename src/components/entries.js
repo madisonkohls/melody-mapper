@@ -14,7 +14,7 @@ const EntryBody = props => {
           <h4 class="titleText">{line.title}</h4>
           <small class="date">{formattedDate}</small>
           <p>{line.body}</p>
-          <Button style={{backgroundColor:"#4B7268"}} onClick={() => props.editEntry(index)}>Edit</Button>
+          <Button style={{backgroundColor:"#4B7268"}} onClick={() => props.editEntry(index, line.title, line.body)}>Edit</Button>
           <Button style={{margin:"10px"}} onClick={() => props.removeEntry(index)}>Delete</Button>
 
           </Col>
