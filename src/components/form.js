@@ -22,30 +22,29 @@ class Form extends Component {
       userid : this.props.userid, //this.userid
       text : this.state.body,
       date : new Date(),
-      title: this.state.title
+      title: this.state.title,
     }
     axios.post('http://localhost:8000/journals/add', journal)
       .then(res => console.log(res.data))
 
+
     this.props.handleSubmit(this.state)
     this.setState(this.initialState)
   }
-
-
+  clearForm = event => {
+    this.setState(this.initialState);
+    this.props.clearForm();
+  }
   render() {
-    let title;
-    let body;
-    if (this.state.title == "") {
-       title = this.props.title;
+    if (this.state.title == "" && this.props.title != "") {
+      this.setState({
+        title: this.props.title,
+      })
     }
-    else {
-       title = this.state.title;
-    }
-    if (this.state.body == "") {
-       body = this.props.body;
-    }
-    else {
-       body = this.state.body;
+    if (this.state.body == "" && this.props.body != "") {
+        this.setState({
+          body: this.props.body,
+        })
     }
     return (
       <div>
@@ -56,8 +55,8 @@ class Form extends Component {
             type = "text"
             name = "title"
             id = "title"
-            placeholder = {this.props.title}
-            value = {title}
+            placeholder = "Your title here."
+            value = {this.state.title}
             onChange = {this.handleChange} />
           </FormGroup>
           <FormGroup>
@@ -66,12 +65,13 @@ class Form extends Component {
               type = "textarea"
               name = "body"
               id = "body"
-              placeholder = {this.props.body}
-              value = {body}
+              placeholder = "Your entry here."
+              value = {this.state.body}
               onChange = {this.handleChange} />
           </FormGroup>
         </form>
         <Button style={{backgroundColor:"#4B7268"}} onClick={this.submitForm}>Submit</Button>
+        <Button style={{margin:"10px"}} onClick={this.clearForm}>Clear</Button>
       </div>
     )
   }

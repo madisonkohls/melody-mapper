@@ -17,10 +17,14 @@ class Journal extends Component {
       addEdit: "add a new",
     }
   }
-
+  clearForm = () => {
+    this.setState ({
+      currTitle: "",
+      currBody: "",
+    })
+  }
   removeEntry = index => {
     const { entries } = this.state
-
     this.setState({
       entries: entries.filter ((entry, i) => {
         return i != index
@@ -30,16 +34,20 @@ class Journal extends Component {
 
   editEntry = (index, title, body) => {
       const { entries } = this.state
-
-      this.setState({
-        currTitle: title,
-        currBody: body,
-        addEdit: "edit an",
-        entries: entries.filter ((entry, i) => {
-          return i != index
-        })
-      })
-    }
+      if (this.state.currTitle != "" || this.state.currBody != "") {
+        alert("You're already editing an entry! Submit to save your work or clear to discard it.");
+      }
+      else {
+        this.setState({
+          currTitle: title,
+          currBody: body,
+          addEdit: "edit an",
+          entries: entries.filter ((entry, i) => {
+              return i != index
+            })
+          })
+      }
+  }
 /*
 
 */
@@ -48,6 +56,8 @@ class Journal extends Component {
     this.setState({
       entries: [...this.state.entries, entry],
       addEdit: "add a new",
+      currTitle: "",
+      currBody: "",
     })
   }
   handleSearchInputChange = entry => {
@@ -61,7 +71,7 @@ class Journal extends Component {
       <div class = "journal">
         <div class = "journalelement">
         <h2 class = "titleText"> {this.state.addEdit} entry </h2>
-        <Form handleSubmit={this.handleSubmit} userid={this.userID} title={this.state.currTitle} body = {this.state.currBody} />
+        <Form handleSubmit={this.handleSubmit} clearForm={this.clearForm} userid={this.userID} title={this.state.currTitle} body = {this.state.currBody}/>
 
         <div class = "spotify">
         <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX92MLsP3K1fI" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
