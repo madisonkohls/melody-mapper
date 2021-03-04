@@ -24,6 +24,7 @@ code {
   color: #4B7268;
   text-align: center;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 .clipart-container {
   align-self: center;
@@ -65,7 +66,7 @@ code {
 }
 .journalelement {
   width: 50%;
-  margin: 20px;
+  margin: 0px 20px;
   overflow-wrap: break-word;
 }
 .spotify{
@@ -120,19 +121,29 @@ code {
 }
 
 .searchbar{
-  width: 99%;
+  width: 98%;
+  color: #4B7268;
 }
 .searchcontainer {
   width: 100%;
   border-color: #4B7268;
-  margin: 10px;
+  margin: 40px 10px;
+
 }
 
 .newentry{
   margin: 20px;
 }
 
-#entrybutton{
-  background-color: #4B7268;
-  margin: 10px;
+.subheader {
+  text-align: center;
+   margin-top: 10px;
+}
+.subheader-bold {
+  color: #4B7268;
+  font-weight: bold;
+}
+
+#formbody {
+  height: 200px;
 }

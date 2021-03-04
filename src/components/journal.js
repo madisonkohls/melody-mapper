@@ -69,15 +69,16 @@ class Journal extends Component {
     const { entries } = this.state;
     return (
       <div class = "journal">
+
+
         <div class = "journalelement">
+        
         <h2 class = "titleText"> {this.state.addEdit} entry </h2>
         <Form handleSubmit={this.handleSubmit} clearForm={this.clearForm} userid={this.userID} title={this.state.currTitle} body = {this.state.currBody}/>
+        </div>
 
-        <div class = "spotify">
-        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX92MLsP3K1fI" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-        </div>
         <div class = "journalelement">
+         <h2 class = "titleText"> search all entries </h2>
           <div class = "searchcontainer">
               <SearchField
                 placeholder="search entries by title"

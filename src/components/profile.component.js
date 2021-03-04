@@ -42,8 +42,11 @@ function Profile() {
             </div>
             <div class = "topsection">
             <h2 class="titleText">hey {firstName}!</h2>
-            <p>Your music genre is {musicGenre}</p>
-            <p>Today you are feeling {mood}</p>
+            <h6 class="subheader">your music genre is <em class="subheader-bold">{musicGenre}</em> and today you are feeling <em class="subheader-bold"> {mood} </em></h6>
+            <h6 class="subheader"> we'd recommend listening to this playlist while you write: </h6>
+            <div class = "spotify">
+            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX92MLsP3K1fI" width="500px" height="100px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
             </div>
         </div>
         <Journal userID={params.id} />

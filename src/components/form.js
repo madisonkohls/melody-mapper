@@ -64,7 +64,7 @@ class Form extends Component {
           <Input
               type = "textarea"
               name = "body"
-              id = "body"
+              id = "formbody"
               placeholder = "Your entry here."
               value = {this.state.body}
               onChange = {this.handleChange} />
