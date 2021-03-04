@@ -7,10 +7,15 @@ import SearchField from "react-search-field";
 
 class Journal extends Component {
   userID = this.props.userID;
-  state = {
-    entries:[
-    ],
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      entries:[
+      ],
+      currTitle: "",
+      currBody: "",
+      addEdit: "add a new",
+    }
   }
 
   removeEntry = index => {
@@ -22,12 +27,28 @@ class Journal extends Component {
       })
     })
   }
+
+  editEntry = index => {
+    const { entries } = this.state
+
+    this.setState({
+      currTitle: "editing title",
+      currBody: "editing body",
+      addEdit: "edit an",
+      entries: entries.filter ((entry, i) => {
+        return i != index
+      })
+    })
+  }
 /*
 
 */
   handleSubmit = entry => {
 
-    this.setState({ entries: [...this.state.entries, entry]})
+    this.setState({
+      entries: [...this.state.entries, entry],
+      addEdit: "add a new",
+    })
   }
   handleSearchInputChange = entry => {
     //do the search
@@ -39,8 +60,8 @@ class Journal extends Component {
     return (
       <div class = "journal">
         <div class = "journalelement">
-        <h2 class = "titleText"> add a new entry </h2>
-        <Form handleSubmit={this.handleSubmit} userid = {this.userID}/>
+        <h2 class = "titleText"> {this.state.addEdit} entry </h2>
+        <Form handleSubmit={this.handleSubmit} userid={this.userID} title={this.state.currTitle} body = {this.state.currBody} />
         <div class = "spotify">
         <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX92MLsP3K1fI" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
@@ -54,7 +75,7 @@ class Journal extends Component {
                 classNames="searchbar"
                 />
             </div>
-            <Entries entryData={entries} removeEntry={this.removeEntry}/>
+            <Entries entryData={entries} removeEntry={this.removeEntry} editEntry={this.editEntry}/>
         </div>
       </div>
     )

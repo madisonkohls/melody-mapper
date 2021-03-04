@@ -6,8 +6,8 @@ class Form extends Component {
   constructor(props) {
     super(props)
     this.initialState = {
-      title: "",
-      body: ""
+      title: this.props.title,
+      body: this.props.body,
     }
     this.state = this.initialState
   }

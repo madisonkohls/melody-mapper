@@ -14,7 +14,9 @@ const EntryBody = props => {
           <h4 class="titleText">{line.title}</h4>
           <small class="date">{formattedDate}</small>
           <p>{line.body}</p>
-          <Button style={{backgroundColor:"#4B7268"}} onClick={() => props.removeEntry(index)}>Delete</Button>
+          <Button style={{backgroundColor:"#4B7268"}} onClick={() => props.editEntry(index)}>Edit</Button>
+          <Button style={{margin:"10px"}} onClick={() => props.removeEntry(index)}>Delete</Button>
+
           </Col>
         </Row>
       </Container>
@@ -34,12 +36,12 @@ const EntryBody = props => {
   )
 }
 const Entries = (props) =>{
-  const { entryData, removeEntry } = props;
+  const { entryData, removeEntry, editEntry } = props;
 
   return (
     <div className = "Entries">
       <h2 class="titleText"> today's entries </h2>
-      <EntryBody entryData = {entryData} removeEntry={removeEntry}/>
+      <EntryBody entryData = {entryData} removeEntry={removeEntry} editEntry={editEntry}/>
     </div>
   )
 }
