@@ -1,4 +1,4 @@
-# melody mapper :musical_note: :memo:
+# melody mapper :musical_note: :green_book:
 Contributers: Madison Kohls, Nisha McNealis, Ellie Krugler, Karina Santoso, Mihir Hasan
 
 Final Project for UCLA CS 97: Software Construction Projects.
