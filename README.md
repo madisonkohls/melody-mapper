@@ -21,7 +21,7 @@ cd backend
 npm install
 sudo npm install -g nodemon
 ```
-Note that `sudo` is needed if you are not the root user (`sudo` installs to folders which your default user may not have access to by default)
+Note that `sudo` is only needed if you are not the root user (`sudo` installs to folders which your default user may not have access to by default)
 4. To run the ml model server, issue the following installations and commands:
 ```
 cd ..
@@ -45,4 +45,4 @@ npm start
 
 ## Troubleshooting :woman_technologist:
 * If a warning indicates you cannot resolve react-router-dom, you need to then issue: `npm install react-router-dom --save`.
-* If you see the error 'Error: listen EADDRINUSE,' a process on your computer is running on a port our app uses (3000, 5000, and 8000). To end this process, find the PID via the command `lsof -i tcp:PA` where PA is the port address. Then you terminate the process via the command `kill -9 PID` where PID is the port ID
+* If you see the error 'Error: listen EADDRINUSE,' a process on your computer is running on a port our app uses (3000, 5000, and 8000). To end this process, find the PID via the command `lsof -i tcp:PA` where PA is the port address. Then terminate the process via the command `kill -9 PID` where PID is the port ID
