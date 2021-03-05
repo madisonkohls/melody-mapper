@@ -23,6 +23,14 @@ router.route('/add').post((req, res) => {
      .then(() => res.json('Journal added!'))
      .catch(err => res.status(400).json('Error: ' + err));
  });
+
+ /*
+ router.route('/search/:journalTitle').get((req, res) => {
+  Journal.find({title=journalTitle})
+      .then(journals => res.json(journals))
+      .catch(err => res.status(400).json('Error: ' + err));
+});
+*/
  
  router.route('/:id').delete((req, res) => {
   Exercise.findByIdAndDelete(req.params.id)
