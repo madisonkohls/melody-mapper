@@ -89,11 +89,11 @@ let playlists = [
 const genreNum = {
   DANCE: "Dance",
   COUNTRY: "Country",
-  CLASSICAL: "Classical",
+  CLASSICAL: "Classical music",
   POP: "Pop",
   ROCK: "Rock",
-  RAP: "Rap",
-  LATIN: "Latin"
+  RAP: "Hiphop, Rap",
+  LATIN: "Latino"
 }
 
 function Profile() {
@@ -121,6 +121,7 @@ function Profile() {
        let i = 4
        let genre = 3
        let tempMood = mood
+       console.log(tempMood)
        switch(tempMood) {
          case "good":
           i = Math.floor(Math.random() * 4)
@@ -156,7 +157,7 @@ function Profile() {
        }
        let playlist = playlists[genre][i]
        setMoodlist(playlist)
-    }, [])
+    });
 
     let onHomePage = (event) => {
         event.preventDefault();
@@ -181,7 +182,6 @@ function Profile() {
         </div>
         <Journal userID={params.id} />
       </div>
-
     )
 }
 
