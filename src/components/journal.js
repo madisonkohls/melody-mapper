@@ -88,7 +88,6 @@ let playlists = [
 ];
 
 class Journal extends Component {
-  userID = this.props.userID;
   constructor(props) {
     super(props)
     this.state = {
@@ -160,7 +159,7 @@ class Journal extends Component {
       <div class = "journal">
         <div class = "journalelement">
           <h2 class = "titleText"> {this.state.addEdit} entry </h2>
-          <Form handleSubmit={this.handleSubmit} clearForm={this.clearForm} userid={this.userID} title={this.state.currTitle} body = {this.state.currBody}/>
+          <Form handleSubmit={this.handleSubmit} clearForm={this.clearForm} userid={this.props.userID} mood = {this.props.mood} title={this.state.currTitle} body = {this.state.currBody}/>
         </div>
         <div class = "journalelement">
          <h2 class = "titleText"> search all entries </h2>

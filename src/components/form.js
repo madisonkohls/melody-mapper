@@ -8,6 +8,7 @@ class Form extends Component {
     this.initialState = {
       title: "",
       body: "",
+      mood: this.props.mood,
     }
     this.state = this.initialState
   }
@@ -23,12 +24,13 @@ class Form extends Component {
       text : this.state.body,
       date : new Date(),
       title: this.state.title,
+      mood: this.props.mood,
     }
     axios.post('http://localhost:8000/journals/add', journal)
       .then(res => console.log(res.data))
 
 
-    this.props.handleSubmit(this.state)
+    this.props.handleSubmit(journal)
     this.setState(this.initialState)
   }
   clearForm = event => {

@@ -1,19 +1,32 @@
 import React, { Component } from "react"
 import {Button, Col, Row, Container} from 'reactstrap'
-
+import good from '../assets/happy.png';
+import neutral from '../assets/neutral.png';
+import bad from '../assets/sad.png';
 
 
 const EntryBody = props => {
   const date = new Date();
   const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric'});
   const lines = props.entryData.map((line, index) => {
+    let moodTag = "😊";
+    if (line.mood == "neutral") {
+      moodTag = "😐";
+    }
+    if (line.mood == "bad") {
+      moodTag = "😔";
+    }
     return (
+
       <Container key={index} className = "shadow p-3 mb-5 bg-white rounded">
+
         <Row>
           <Col>
-          <h4 class="titleText">{line.title}</h4>
-          <small class="date">{formattedDate}</small>
-          <p>{line.body}</p>
+          <small class="smallText date">{formattedDate}</small>
+          <p class="smallText moodTag">{moodTag}</p>
+          <h4 class="titleText entryTitle">{line.title}</h4>
+
+          <p>{line.text}</p>
           <Button style={{backgroundColor:"#4B7268"}} onClick={() => props.editEntry(index, line.title, line.body)}>Edit</Button>
           <Button style={{margin:"10px"}} onClick={() => props.removeEntry(index)}>Delete</Button>
 
