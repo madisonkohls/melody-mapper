@@ -180,7 +180,7 @@ function Profile() {
             </div>
             </div>
         </div>
-        <Journal userID={params.id} />
+        <Journal userID={params.id} mood={mood} />
       </div>
     )
 }
