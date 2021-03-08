@@ -108,8 +108,8 @@ function Mood() {
             </div>
             <div class = "moodholder">
             <button style={{backgroundColor:"#FFFFFF", border:"none"}} onClick={onMoodClick1}><img id="mood" src={happy} alt="good"/></button>
-            <button style={{backgroundColor:"#FFFFFF", border:"none"}} onClick={onMoodClick2}> <img id="mood" src={neutral} alt="neutral"/></button>
-            <button style={{backgroundColor:"#FFFFFF", border:"none"}} onClick={onMoodClick3}> <img id="mood" src={sad} alt="bad"/></button>
+            <button style={{backgroundColor:"#FFFFFF", border:"none"}} onClick={onMoodClick2}><img id="mood" src={neutral} alt="neutral"/></button>
+            <button style={{backgroundColor:"#FFFFFF", border:"none"}} onClick={onMoodClick3}><img id="mood" src={sad} alt="bad"/></button>
             </div>
         </div>
       </div>

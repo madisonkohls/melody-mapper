@@ -1,13 +1,13 @@
 const router = require('express').Router();
 let Journal = require('../models/journals.model')
- 
+
 router.route('/').get((req, res) => {
    Journal.find()
        .then(journals => res.json(journals))
        .catch(err => res.status(400).json('Error: ' + err));
 });
 //add routing stuffs here
- 
+
 router.route('/add').post((req, res) => {
    const userid = req.body.userid;
    const text = req.body.text;
@@ -26,13 +26,6 @@ router.route('/add').post((req, res) => {
      .catch(err => res.status(400).json('Error: ' + err));
  });
 
- /*
- router.route('/search/:journalTitle').get((req, res) => {
-  Journal.find({title=journalTitle})
-      .then(journals => res.json(journals))
-      .catch(err => res.status(400).json('Error: ' + err));
-});
-*/
 router.route('/search-journals').post((req,res)=>{
   let journalPattern = new RegExp("^"+req.body.query)
   Journal.find({title:{$regex:journalPattern}})
@@ -40,13 +33,11 @@ router.route('/search-journals').post((req,res)=>{
       if(journal.userID == req.body.userCheck)
       {
       res.json(journal);
-      console.log (journal);
+      console.log(journal);
       }
   }).catch(err=>{
       console.log(err)
   })
-
-});
 
  
  router.post('/delete',(req, res) => {
@@ -69,6 +60,5 @@ router.route('/search-journals').post((req,res)=>{
      })
      .catch(err => res.status(400).json('Error: ' + err));
  });
- 
-module.exports = router;
 
+module.exports = router;
