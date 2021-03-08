@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom"
 import axios from 'axios'
 import {Button} from 'reactstrap'
 import '../App.css';
+import happy from '../assets/happy.png';
+import neutral from '../assets/neutral.png';
+import sad from '../assets/sad.png';
 
 function Mood() {
     const [ username, setUsername ] = useState("")
@@ -32,17 +35,17 @@ function Mood() {
         console.log("Home Page")
         window.location = '/'
     }
-    
+
     let onMoodClick1 = (event) => {
         event.preventDefault();
         updateAccount("good");
     }
-    
+
     let onMoodClick2 = (event) => {
         event.preventDefault();
         updateAccount("neutral");
     }
-    
+
     let onMoodClick3 = (event) => {
         event.preventDefault();
         updateAccount("bad");
@@ -56,7 +59,7 @@ function Mood() {
             emailAddress: emailAddress,
             musicGenre: genre,
             mood: mood
-            
+
         }
 
         console.log(user)
@@ -101,16 +104,12 @@ function Mood() {
             </div>
             <div class = "topsection">
             <h2 class="titleText">hey {firstName}!</h2>
-            <p>How are you feeling today?</p>
+            <p>how are you feeling today?</p>
             </div>
-            <div class = "moodbutton">
-            <Button style={{backgroundColor:"#339966"}} onClick={onMoodClick1}>Good :)</Button>
-            </div>
-            <div class = "moodbutton">
-            <Button style={{backgroundColor:"#e6e600"}} onClick={onMoodClick2}>Neutral :/</Button>
-            </div>
-            <div class = "moodbutton">
-            <Button style={{backgroundColor:"#b30000"}} onClick={onMoodClick3}>Bad :(</Button>
+            <div class = "moodholder">
+            <button style={{backgroundColor:"#FFFFFF", border:"none"}} onClick={onMoodClick1}><img id="mood" src={happy} alt="good"/></button>
+            <button style={{backgroundColor:"#FFFFFF", border:"none"}} onClick={onMoodClick2}><img id="mood" src={neutral} alt="neutral"/></button>
+            <button style={{backgroundColor:"#FFFFFF", border:"none"}} onClick={onMoodClick3}><img id="mood" src={sad} alt="bad"/></button>
             </div>
         </div>
       </div>

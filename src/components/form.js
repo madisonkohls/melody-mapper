@@ -7,7 +7,8 @@ class Form extends Component {
     super(props)
     this.initialState = {
       title: "",
-      body: ""
+      body: "",
+      mood: this.props.mood,
     }
     this.state = this.initialState
   }
@@ -22,16 +23,31 @@ class Form extends Component {
       userid : this.props.userid, //this.userid
       text : this.state.body,
       date : new Date(),
-      title: this.state.title
+      title: this.state.title,
+      mood: this.props.mood,
     }
     axios.post('http://localhost:8000/journals/add', journal)
       .then(res => console.log(res.data))
 
-    this.props.handleSubmit(this.state)
+
+    this.props.handleSubmit(journal)
     this.setState(this.initialState)
   }
+  clearForm = event => {
+    this.setState(this.initialState);
+    this.props.clearForm();
+  }
   render() {
-    const { title, body } = this.state;
+    if (this.state.title == "" && this.props.title != "") {
+      this.setState({
+        title: this.props.title,
+      })
+    }
+    if (this.state.body == "" && this.props.body != "") {
+        this.setState({
+          body: this.props.body,
+        })
+    }
     return (
       <div>
         <form>
@@ -41,8 +57,8 @@ class Form extends Component {
             type = "text"
             name = "title"
             id = "title"
-            placeholder = "Your title here"
-            value = {title}
+            placeholder = "Your title here."
+            value = {this.state.title}
             onChange = {this.handleChange} />
           </FormGroup>
           <FormGroup>
@@ -50,13 +66,14 @@ class Form extends Component {
           <Input
               type = "textarea"
               name = "body"
-              id = "body"
-              placeholder = "Your text here"
-              value = {body}
+              id = "formbody"
+              placeholder = "Your entry here."
+              value = {this.state.body}
               onChange = {this.handleChange} />
           </FormGroup>
         </form>
         <Button style={{backgroundColor:"#4B7268"}} onClick={this.submitForm}>Submit</Button>
+        <Button style={{margin:"10px"}} onClick={this.clearForm}>Clear</Button>
       </div>
     )
   }

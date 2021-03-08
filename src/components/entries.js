@@ -1,18 +1,36 @@
 import React, { Component } from "react"
 import {Button, Col, Row, Container} from 'reactstrap'
+import good from '../assets/happy.png';
+import neutral from '../assets/neutral.png';
+import bad from '../assets/sad.png';
+
 
 const EntryBody = props => {
-  const date = new Date();
-  const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric'});
   const lines = props.entryData.map((line, index) => {
+    const date = line.date;
+    const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric'});
+
+    let moodTag = "😊";
+    if (line.mood == "neutral") {
+      moodTag = "😐";
+    }
+    if (line.mood == "bad") {
+      moodTag = "😔";
+    }
     return (
+
       <Container key={index} className = "shadow p-3 mb-5 bg-white rounded">
+
         <Row>
           <Col>
-          <h4 class="titleText">{line.title}</h4>
-          <small class="date">{formattedDate}</small>
-          <p>{line.body}</p>
-          <Button style={{backgroundColor:"#4B7268"}} onClick={() => props.removeEntry(index)}>Delete</Button>
+          <small class="smallText date">{formattedDate}</small>
+          <p class="smallText moodTag">{moodTag}</p>
+          <h4 class="titleText entryTitle">{line.title}</h4>
+
+          <p>{line.text}</p>
+          <Button style={{backgroundColor:"#4B7268"}} onClick={() => props.editEntry(index, line.title, line.body)}>Edit</Button>
+          <Button style={{margin:"10px"}} onClick={() => props.removeEntry(index)}>Delete</Button>
+
           </Col>
         </Row>
       </Container>
@@ -32,12 +50,14 @@ const EntryBody = props => {
   )
 }
 const Entries = (props) =>{
-  const { entryData, removeEntry } = props;
+  const { entryData, removeEntry, editEntry } = props;
+
   return (
     <div className = "Entries">
-      <h2 class="titleText"> my entries </h2>
-      <EntryBody entryData = {entryData} removeEntry={removeEntry}/>
+      <h2 class="titleText"> today's entries </h2>
+      <EntryBody entryData = {entryData} removeEntry={removeEntry} editEntry={editEntry}/>
     </div>
   )
 }
+
 export default Entries;
