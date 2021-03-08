@@ -30,17 +30,17 @@ router.route('/search-journals').post((req,res)=>{
   let journalPattern = new RegExp("^"+req.body.query)
   Journal.find({title:{$regex:journalPattern}})
   .then(journal=>{
-      if(journal.userID == req.body.userCheck)
-      {
+  //    if(journal.userID == req.body.userCheck)
+  //    {
       res.json(journal);
       console.log(journal);
-      }
+  //    }
   }).catch(err=>{
       console.log(err)
   })
 });
 
- 
+
  router.post('/delete',(req, res) => {
     Journal.deleteOne({title:req.body.title}, {text:req.body.text}, {userid:req.body.id})
       .then(

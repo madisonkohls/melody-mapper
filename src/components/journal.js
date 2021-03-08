@@ -32,22 +32,23 @@ class Journal extends Component {
       })
     })
 
-    axios.post('http://localhost:8000/journals/delete', 
+    axios.post('http://localhost:8000/journals/delete',
     {id:this.props.userID, title:tobeRemoved.title, text:tobeRemoved.body})
      .then((results) => {
        console.log(results.data);
       });
   }
 
-  editEntry = (index, title, body) => {
+  editEntry = (index, title, text) => {
       const { entries } = this.state
       if (this.state.currTitle != "" || this.state.currBody != "") {
         alert("You're already editing an entry! Submit to save your work or clear to discard it.");
       }
+
       else {
         this.setState({
           currTitle: title,
-          currBody: body,
+          currBody: text,
           addEdit: "edit an",
           entries: entries.filter ((entry, i) => {
               return i != index
@@ -55,7 +56,7 @@ class Journal extends Component {
           })
       }
   }
-  
+
   handleSubmit = entry => {
 
     this.setState({
@@ -65,7 +66,7 @@ class Journal extends Component {
       currBody: "",
     })
   }
-  
+
   handleSearch = (searchInp) => {
     //do the search for this.state.searchContents
     //this.setState({ entries: //search results
@@ -75,7 +76,7 @@ class Journal extends Component {
     console.log(this.props.userID);
     //return as array of journal
     var i;
-    axios.post('http://localhost:8000/journals/search-journals', 
+    axios.post('http://localhost:8000/journals/search-journals',
     {query:searchInp, userCheck:this.props.userID})
     .then(results => {
        for(i = 0; i < results.data.length; i++)
@@ -86,10 +87,10 @@ class Journal extends Component {
       });
   }
 
-  handleChange = event => {    
-    const{name, value} = event.target    
-    this.setState({      
-      [name]: value}) 
+  handleChange = event => {
+    const{name, value} = event.target
+    this.setState({
+      [name]: value})
      }
 
   render() {

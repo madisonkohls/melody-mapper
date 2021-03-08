@@ -6,9 +6,8 @@ import bad from '../assets/sad.png';
 
 
 const EntryBody = props => {
-  const lines = props.entryData.map((line, index) => {
-    const date = line.date;
-    const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric'});
+
+    const lines = props.entryData.map((line, index) => {
     let moodTag = "😊";
     if (line.mood == "neutral") {
       moodTag = "😐";
@@ -22,12 +21,12 @@ const EntryBody = props => {
 
         <Row>
           <Col>
-          <small class="smallText date">{formattedDate}</small>
+          <small class="smallText date">{line.date}</small>
           <p class="smallText moodTag">{moodTag}</p>
           <h4 class="titleText entryTitle">{line.title}</h4>
 
           <p>{line.text}</p>
-          <Button style={{backgroundColor:"#4B7268"}} onClick={() => props.editEntry(index, line.title, line.body)}>Edit</Button>
+          <Button style={{backgroundColor:"#4B7268"}} onClick={() => props.editEntry(index, line.title, line.text)}>Edit</Button>
           <Button style={{margin:"10px"}} onClick={() => props.removeEntry(index)}>Delete</Button>
 
           </Col>
@@ -53,7 +52,7 @@ const Entries = (props) =>{
 
   return (
     <div className = "Entries">
-      <h2 class="titleText"> today's entries </h2>
+      <h2 class="titleText"> past entries </h2>
       <EntryBody entryData = {entryData} removeEntry={removeEntry} editEntry={editEntry}/>
     </div>
   )
