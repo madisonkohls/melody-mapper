@@ -22,7 +22,7 @@ const EntryBody = props => {
 
         <Row>
           <Col>
-          <small class="smallText date">{line.date}</small>
+          <small class="smallText date">{formattedDate}</small>
           <p class="smallText moodTag">{moodTag}</p>
           <h4 class="titleText entryTitle">{line.title}</h4>
 
