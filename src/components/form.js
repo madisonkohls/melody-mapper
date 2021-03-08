@@ -21,10 +21,13 @@ class Form extends Component {
   }
 
   submitForm = () => {
+    const d = new Date();
+    const formattedDate = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric'});
+    console.log(formattedDate);
     const journal = {
       userid : this.props.userid, //this.userid
       text : this.state.body,
-      date : new Date(),
+      date : formattedDate,
       title: this.state.title,
       mood: this.props.mood,
     }
@@ -84,4 +87,3 @@ class Form extends Component {
   }
 }
 export default Form;
-

@@ -37,7 +37,7 @@ router.route('/search-journals').post((req,res)=>{
   })
 });
 
- 
+
  router.post('/delete',(req, res) => {
     Journal.deleteOne({title:req.body.title}, {text:req.body.text}, {userid:req.body.id})
       .then(
