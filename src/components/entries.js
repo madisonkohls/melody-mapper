@@ -6,8 +6,9 @@ import bad from '../assets/sad.png';
 
 
 const EntryBody = props => {
-
-    const lines = props.entryData.map((line, index) => {
+  const lines = props.entryData.map((line, index) => {
+    const date = new Date(line.date);
+    const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric'});
     let moodTag = "😊";
     if (line.mood == "neutral") {
       moodTag = "😐";

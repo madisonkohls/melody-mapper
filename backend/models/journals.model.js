@@ -14,7 +14,8 @@ const journalSchema = new Schema({
         type: String,
         required: true
     },
-    date: { type: String, //change back to String
+    date: { 
+        type: Date,
         required: true
     },
     mood: { type: String,

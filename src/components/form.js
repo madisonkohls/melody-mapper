@@ -12,12 +12,14 @@ class Form extends Component {
     }
     this.state = this.initialState
   }
+  
   handleChange = event => {
     const{name, value} = event.target
     this.setState({
       [name]: value
     })
   }
+
   submitForm = () => {
     const d = new Date();
     const formattedDate = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric'});
