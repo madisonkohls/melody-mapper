@@ -38,6 +38,7 @@ router.route('/search-journals').post((req,res)=>{
   }).catch(err=>{
       console.log(err)
   })
+});
 
  
  router.post('/delete',(req, res) => {
