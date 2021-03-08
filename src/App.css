@@ -24,6 +24,7 @@ code {
   color: #4B7268;
   text-align: center;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 .clipart-container {
   align-self: center;
@@ -52,9 +53,14 @@ code {
   width: auto;
 }
 
-.moodbutton {
-  position: static;
+.moodbuttonholder {
+
+}
+
+#mood{
+  height: 150px;
   width: auto;
+  padding: 0px 20px;
 }
 
 .journal {
@@ -62,7 +68,7 @@ code {
 }
 .journalelement {
   width: 50%;
-  margin: 20px;
+  margin: 0px 20px;
   overflow-wrap: break-word;
 }
 .spotify{
@@ -114,4 +120,47 @@ code {
   display: flex;
   margin: 10px;
   margin-bottom: 30px;
+}
+
+.searchbar{
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+}
+.searchcontainer {
+  width: 100%;
+  border-color: #4B7268;
+  margin: 42px 10px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-gap: 20px;
+
+}
+
+.newentry{
+  margin: 20px;
+}
+
+.subheader {
+  text-align: center;
+   margin-top: 10px;
+}
+.subheader-bold {
+  color: #4B7268;
+  font-weight: bold;
+}
+
+#formbody {
+  height: 200px;
 }
