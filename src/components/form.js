@@ -26,20 +26,17 @@ class Form extends Component {
       title: this.state.title,
       mood: this.props.mood,
     }
-
     axios.post('http://localhost:8000/journals/add', journal)
-      .then(res => console.log(res))
+      .then(res => console.log(res.data))
 
 
     this.props.handleSubmit(journal)
     this.setState(this.initialState)
   }
-
   clearForm = event => {
     this.setState(this.initialState);
     this.props.clearForm();
   }
-
   render() {
     if (this.state.title == "" && this.props.title != "") {
       this.setState({
@@ -82,4 +79,3 @@ class Form extends Component {
   }
 }
 export default Form;
-
