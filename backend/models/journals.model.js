@@ -20,6 +20,9 @@ const journalSchema = new Schema({
     mood: { type: String,
         required: true
     },
+    mood: { type: String,
+        required: true
+    },
 }, {
     timestamps: true,
 });

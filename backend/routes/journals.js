@@ -26,11 +26,27 @@ router.route('/add').post((req, res) => {
      .catch(err => res.status(400).json('Error: ' + err));
  });
 
- router.route('/:id').delete((req, res) => {
-  Exercise.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Exercise deleted.'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+router.route('/search-journals').post((req,res)=>{
+  let journalPattern = new RegExp("^"+req.body.query)
+  Journal.find({title:{$regex:journalPattern}})
+  .then(journal=>{
+      if(journal.userID == req.body.userCheck)
+      {
+      res.json(journal);
+      console.log(journal);
+      }
+  }).catch(err=>{
+      console.log(err)
+  })
+
+ 
+ router.post('/delete',(req, res) => {
+    Journal.deleteOne({title:req.body.title}, {text:req.body.text}, {userid:req.body.id})
+      .then(
+      res.json('Exercise deleted.')
+      )
+
+ });
 
  router.route('/update/:id').post((req, res) => {
    Exercise.findById(req.params.id)

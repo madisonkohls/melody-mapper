@@ -2,9 +2,8 @@ import React, { Component } from "react"
 import Entries from "./entries"
 import Form from "./form"
 import {Button, FormGroup, Input, Label} from 'reactstrap'
+import axios from 'axios'
 
-
-//import axios from 'axios'
 
 class Journal extends Component {
   constructor(props) {
@@ -15,6 +14,7 @@ class Journal extends Component {
       currTitle: "",
       currBody: "",
       addEdit: "add a new",
+      searchContents: ''
     }
   }
   clearForm = () => {
@@ -25,11 +25,18 @@ class Journal extends Component {
   }
   removeEntry = index => {
     const { entries } = this.state
+    const tobeRemoved = entries[index];
     this.setState({
       entries: entries.filter ((entry, i) => {
         return i != index
       })
     })
+
+    axios.post('http://localhost:8000/journals/delete', 
+    {id:this.props.userID, title:tobeRemoved.title, text:tobeRemoved.body})
+     .then((results) => {
+       console.log(results.data);
+      });
   }
 
   editEntry = (index, title, body) => {
@@ -48,9 +55,7 @@ class Journal extends Component {
           })
       }
   }
-/*
-
-*/
+  
   handleSubmit = entry => {
 
     this.setState({
@@ -60,13 +65,32 @@ class Journal extends Component {
       currBody: "",
     })
   }
-  handleSearchInputChange = () => {
+  
+  handleSearch = (searchInp) => {
     //do the search for this.state.searchContents
     //this.setState({ entries: //search results
     //it's currently set up so the search will happen whenever the search field input changes
     //or the user presses the "Search" button
+    console.log('search');
+    console.log(this.props.userID);
+    //return as array of journal
+    var i;
+    axios.post('http://localhost:8000/journals/search-journals', 
+    {query:searchInp, userCheck:this.props.userID})
+    .then(results => {
+       for(i = 0; i < results.data.length; i++)
+       {
+         this.handleSubmit(results.data[i]);
+       }
+       console.log(results);
+      });
   }
 
+  handleChange = event => {    
+    const{name, value} = event.target    
+    this.setState({      
+      [name]: value}) 
+     }
 
   render() {
     const { entries } = this.state;
@@ -82,6 +106,14 @@ class Journal extends Component {
               <div class = "searchelement">
                 <Input
                   placeholder="Search entries by title."
+                  className="searchbar"
+                  value = {this.state.searchContents}
+                  name = 'searchContents'
+                  onChange={this.handleChange}
+                  />
+              </div>
+              <div class = "searchelement">
+                <Button style={{backgroundColor:"#4B7268"}} onClick={() => this.handleSearch(this.state.searchContents)} >Search</Button>
                   onChange={this.handleSearchInputChange}
                   className="searchbar"
                   value = {this.state.searchContents}
@@ -96,6 +128,6 @@ class Journal extends Component {
       </div>
     )
   }
-
 }
+
 export default Journal;
