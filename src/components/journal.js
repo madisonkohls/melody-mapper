@@ -4,6 +4,13 @@ import Form from "./form"
 import {Button, FormGroup, Input, Label} from 'reactstrap'
 import axios from 'axios'
 
+function uniqByKeepLast(data, key){
+  return [
+      ...new Map(
+        data.map(x => [key(x), x])
+      ).values()
+    ]
+}
 
 class Journal extends Component {
   constructor(props) {
@@ -59,11 +66,12 @@ class Journal extends Component {
 
   handleSubmit = entry => {
     this.setState({
-      entries: [entry, ...this.state.entries],
+      entries: uniqByKeepLast([entry, ...this.state.entries], it => it._id),
       addEdit: "add a new",
       currTitle: "",
       currBody: "",
     })
+    console.log(this.state.entries)
   }
 
   handleSearch = (searchInp) => {
@@ -82,7 +90,6 @@ class Journal extends Component {
        {
          this.handleSubmit(results.data[i]);
        }
-       console.log(results);
       });
   }
 
