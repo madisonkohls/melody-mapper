@@ -59,7 +59,7 @@ class Journal extends Component {
 
   handleSubmit = entry => {
     this.setState({
-      entries: [...this.state.entries, entry],
+      entries: [entry, ...this.state.entries],
       addEdit: "add a new",
       currTitle: "",
       currBody: "",
