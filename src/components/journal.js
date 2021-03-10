@@ -123,10 +123,6 @@ class Journal extends Component {
         return i != index
       })
     })
-    //console.log (this.userID)
-   // console.log(tobeRemoved.title)
-   // console.log(tobeRemoved.text)
-    //working
     axios.delete('http://localhost:8000/journals/delete',
     {data:{id:this.userID, title:tobeRemoved.title, text:tobeRemoved.text}})
      .then((results) => {
@@ -151,10 +147,8 @@ class Journal extends Component {
           })
       }
   }
-/*
-*/
-  handleSubmit = entry => {
 
+  handleSubmit = entry => {
     this.setState({
       entries: uniqByKeepLast([entry, ...this.state.entries], it => it._id),
       addEdit: "add a new",
@@ -163,6 +157,7 @@ class Journal extends Component {
     })
     console.log(this.state.entries)
   }
+
   handleSearch = (searchInp,searchCat) => { //searchCat has to be  a passed in string "title" or "mood"
     //do the search for this.state.searchContents
     //this.setState({ entries: //search results
@@ -183,9 +178,7 @@ class Journal extends Component {
       });
   }
 
-
   componentDidMount() {
-
     this.setState({ moodlist: playlists[0][0]})
   }
 
@@ -242,8 +235,6 @@ class Journal extends Component {
       </div>
     )
   }
-
 }
-export default Journal;
 
-//onClick={this.handleSearchInputChange(this.state.searchContents)}
+export default Journal;

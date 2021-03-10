@@ -6,7 +6,12 @@ router.route('/').get((req, res) => {
        .then(journals => res.json(journals))
        .catch(err => res.status(400).json('Error: ' + err));
 });
-//add routing stuffs here
+
+router.route('/:id').get((req, res) => {
+  Journal.findById(req.params.id)
+      .then(journal => res.json(journal))
+      .catch(err => res.status(400).json('Error: ' + err));
+});
 
 router.route('/add').post((req, res) => {
    const userid = req.body.userid;
@@ -22,7 +27,7 @@ router.route('/add').post((req, res) => {
        mood,
    });
     newJournal.save()
-     .then(() => res.json('Journal added!'))
+     .then(() => res.json(newJournal._id))
      .catch(err => res.status(400).json('Error: ' + err));
  });
 

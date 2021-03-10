@@ -27,38 +27,11 @@ class Form extends Component {
     }
 
     axios.post('http://localhost:8000/journals/add', journal)
-      .then(res => console.log(res))
-
-    this.props.handleSubmit(journal)
+      .then(res => axios.get('http://localhost:8000/journals/'+res.data)
+                      .then(jour => this.props.handleSubmit(jour.data)))
+    //adds the new journal then retrieves journal from database to submit (for journal id)
     this.setState(this.initialState)
   }
-
-  /*
- componentDidMount() {
-   axios.get('http://localhost:5000/journals')
-     .then(response => {
-       journals =response.data;
-     })
-     .catch((error) => {
-       console.log(error);
-     })
- }
- 
- //add substring stuff
- searchJournals = journalTitle => {
-   var i = 0;
-   for( i = 0; i < journals.length; i++ )
-   {
-     if(journals[i].userid == this.props.userid)
-     {
-       if (journals[i].title == journalTitle)
-         {
-           return journals[i];
-         }
-     }
-   }
- }
- */
 
   clearForm = event => {
     this.setState(this.initialState);
