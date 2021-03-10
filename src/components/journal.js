@@ -126,12 +126,13 @@ class Journal extends Component {
      }
   setArrow = () => {
    if (this.state.arrowValue == "next-button") {
-     window.location="#journalTag"
+     this.journalRef.scrollIntoView()
      this.setState({arrowValue: "prev-button"})
    }
    else {
-     window.location="#top"
+     this.topRef.scrollIntoView()
      this.setState({arrowValue: "next-button"})
+
    }
  }
 
@@ -139,8 +140,9 @@ class Journal extends Component {
     const { entries } = this.state;
     return (
       <div>
+        <div class="top" ref ={(ref) => this.topRef=ref}> </div>
         <div class={this.state.arrowValue} onClick={this.setArrow}></div>
-        <div class = "journal">
+        <div class = "journal" ref ={(ref) => this.journalRef=ref}>
           <div class = "journalelement">
             <h2 class = "titleText"> {this.state.addEdit} entry </h2>
             <Form handleSubmit={this.handleSubmit} clearForm={this.clearForm} userid={this.props.userID} mood = {this.props.mood} title={this.state.currTitle} body = {this.state.currBody}/>

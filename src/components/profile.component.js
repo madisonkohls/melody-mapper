@@ -173,7 +173,7 @@ function Profile() {
 
     return (
       <div>
-        <div class = "mainpage" id="top">
+        <div class = "mainpage">
             <div class = "logoutbutton">
             <Button style={{backgroundColor:"#4B7268"}} onClick={onHomePage}>Log out</Button>
             </div>
@@ -190,7 +190,7 @@ function Profile() {
             </div>
         </div>
         <div id = "journalTag">
-          <Journal userID={params.id} mood={mood} />
+          <Journal userID={params.id} mood={mood}/>
         </div>
       </div>
     )
