@@ -28,29 +28,46 @@ router.route('/add').post((req, res) => {
 
 router.route('/search-journals').post((req,res)=>{
   let journalPattern = new RegExp("^"+req.body.query)
+  //searching by title
+  if(req.body.searchType == 'title'){
   Journal.find({title:{$regex:journalPattern}})
   .then(journal=>{
-      res.json(journal);
-      console.log(journal);
+      res.json(journal)
   }).catch(err=>{
-      console.log(err)
-  })
+    console.log(err)})
+  };
+
+  //searching by mood
+  if(req.body.searchType == 'mood'){
+    Journal.find({mood:{$regex:journalPattern}})
+    .then(journal=>{
+        res.json(journal)
+    }).catch(err=>{
+       console.log(err)})
+  
+  };
+  //.catch(err=>{
+    //  console.log(err)
+  //})
 });
 
 
- router.post('/delete',(req, res) => {
-    Journal.deleteOne({title:req.body.title}, {text:req.body.text}, {userid:req.body.id})
-      .then(
-        res.json('Journal deleted.')
+ router.route('/delete').delete((req, res) => {
+    Journal.deleteOne({'title':req.body.title, 'text':req.body.text, 'userid':req.body.id} )//{userid:req.body.id}
+      .then(()=>{
+        res.json('journal deleted')}
       )
+      .catch(err => res.status(400).json('Error: ' + err));
+
  });
 
- router.route('/update/:id').post((req, res) => {
-   Exercise.findById(req.params.id)
+ router.route('/update').post((req, res) => {
+   Exercise.find({'title':req.body.title, 'text':req.body.text, 'userid':req.body.id} )
      .then(exercise => {
-       journal.username = req.body.username;
+       journal.userid = journal.userid;
+       journal.title = req.body.title;
        journal.text = req.body.text;
-       journal.date = Date.parse(req.body.date);;
+       journal.date = Date.parse(req.body.date);
         exercise.save()
          .then(() => res.json('Journal updated!'))
          .catch(err => res.status(400).json('Error: ' + err));
