@@ -3,7 +3,7 @@ Contributers: Madison Kohls, Nisha McNealis, Ellie Krugler, Karina Santoso, Mihi
 
 Final Project for UCLA CS 97: Software Construction Projects.
 
-Web App that track mood, music preference, and journal entries. Built using the MERN stack(MongoBD, Express.js, React.js, and Node.js) + Flask.
+Web App that tracks users' moods, music preferences, and journal entries. Built using the MERN stack(MongoBD, Express.js, React.js, and Node.js) + Flask.
 
 ## Running the web app locally
 1. On the command line, clone this repository by running:
