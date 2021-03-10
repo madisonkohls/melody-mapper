@@ -119,7 +119,7 @@ function Questions() {
                     value={responses[0]}
                     onChange={event => changeResponses(0, event.target.value)}
                     min="1" max="5" />
-                    <span >{responses[0]}</span>
+                    <span class="currvalue">({responses[0]}/5)</span>
                 </div>
                 <div class="formelement">
                     <label>I enjoy reading poetry:  </label>
@@ -130,7 +130,7 @@ function Questions() {
                         value={responses[1]}
                         onChange={event => changeResponses(1, event.target.value)}
                         min="1" max="5" />
-                        <span >{responses[1]}</span>
+                        <span class="currvalue" >({responses[1]}/5)</span>
                 </div>
                 <div class="formelement">
                 <label>I am interested in cars: </label>
@@ -141,86 +141,85 @@ function Questions() {
                         value={responses[2]}
                         onChange={event => changeResponses(2, event.target.value)}
                         min="1" max="5"/>
-                        <span >{responses[2]}</span>
+                        <span class="currvalue">({responses[2]}/5)</span>
                 </div>
                 <div class="formelement">
-                <label>I enjoy dancing:
+                <label>I enjoy dancing:</label>
+                <br />
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[3]}
                         onChange={event => changeResponses(3, event.target.value)}
                         min="1" max="5"/>
-                        <span >{responses[3]}</span>
-                </label>
+                        <span class="currvalue">({responses[3]}/5)</span>
+
                 </div>
                 <div class="formelement">
-                <label>I enjoy following celebrity lifestyles:
+                <label>I enjoy following celebrity lifestyles:</label>
+                <br />
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[4]}
                         onChange={event => changeResponses(4, event.target.value)}
                         min="1" max="5"/>
-                        <span >{responses[4]}</span>
-                </label>
+                        <span class="currvalue">({responses[4]}/5)</span>
                 </div>
                 <div class="formelement">
-                <label>I am interested in theatre:
+                <label>I am interested in theatre:</label>
+                <br />
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[5]}
                         onChange={event => changeResponses(5, event.target.value)}
                         min="1" max="5"/>
-                        <span >{responses[5]}</span>
-                </label>
+                        <span class="currvalue">({responses[5]}/5)</span>
                 </div>
                 <div class="formelement">
-                <label>I am afraid of spiders:
+                <label>I am afraid of spiders:</label>
+                <br />
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[6]}
                         onChange={event => changeResponses(6, event.target.value)}
                         min="1" max="5"/>
-                        <span >{responses[6]}</span>
-                </label>
+                        <span class="currvalue">({responses[6]}/5)</span>
                 </div>
                 <div class="formelement">
-                <label>I always make a list so I do not forget anything:
+                <label>I always make a list so I do not forget anything:</label>
+                <br />
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[7]}
                         onChange={event => changeResponses(7, event.target.value)}
                         min="1" max="5"/>
-                        <span >{responses[7]}</span>
-                </label>
+                        <span class="currvalue">({responses[7]}/5)</span>
                 </div>
                 <div class="formelement">
-                <span>
-                <label>I believe in God:
+                <label>I believe in God:</label>
+                <br />
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[8]}
                         onChange={event => changeResponses(8, event.target.value)}
-                        min="1" max="5"></input>
-                        <span >{responses[8]}</span>
-                </label>
-                </span>
+                        min="1" max="5" />
+                        <span class="currvalue">({responses[8]}/5)</span>
                 </div>
                 <div class="formelement">
-                <label>I always make sure I connect with the right people:
+                <label>I always make sure I connect with the right people:</label>
+                <br />
                     <input class="formfield"
                         type="range"
                         id="fader"
                         value={responses[9]}
                         onChange={event => changeResponses(9, event.target.value)}
                         min="1" max="5"/>
-                        <span >{responses[9]}</span>
-                </label>
+                        <span class="currvalue">({responses[9]}/5)</span>
                 </div>
                 <Button type="submit" style={{backgroundColor:"#4B7268", margin: "2%"}}>Generate Music Preference</Button>
             </form>

@@ -200,7 +200,9 @@ code {
 .searchcontainer {
   width: 100%;
   border-color: #4B7268;
-  margin: 42px 10px;
+  margin-top: 42px;
+  margin-left: 10px;
+  margin-right: 10px;
   display: grid;
   grid-template-columns: 5fr 1fr 1fr;
   grid-gap: 10px;
@@ -213,6 +215,8 @@ code {
   border-color: #ced4d9;
   border-width: thin;
   border-radius: 5px;
+  margin-bottom: 10px;
+  margin-left: 15px;
 
 }
 .mood-content{
@@ -268,4 +272,12 @@ code {
 
 #formbody {
   height: 200px;
+}
+
+.currvalue {
+  color: #4B7268;
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 10px;
+  margin-top: 0px;
 }

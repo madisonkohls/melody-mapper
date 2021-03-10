@@ -156,29 +156,7 @@ class Journal extends Component {
                     name = 'searchContents'
                     onChange={this.handleChange}
                     />
-                    <div class = "moodselect">
-                      <div id="select-mood" class="mood-content" >
-                        <div class="moodelem">
-                          <h6 class="moodtext"> Filter entries by mood: </h6>
-                        </div>
-                        <div class="moodelem">
-                          <label>
-                            <input type="radio" value="good" name="mood" onChange={() => this.handleSearch("good", "mood")} />
-                            <img className="emojiSelect" src={happy} />
-                          </label>
-                          {" "}
-                          <label>
-                            <input type="radio" value="neutral" name="mood" onChange={() => this.handleSearch("neutral", "mood")} />
-                            <img className="emojiSelect" src={neutral} />
-                          </label>
-                          {" "}
-                          <label>
-                            <input type="radio" value="bad" name="mood" onChange={() => this.handleSearch("bad", "mood")} />
-                            <img className="emojiSelect" src={sad} />
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+
                 </div>
 
                 <div class = "searchelement">
@@ -187,8 +165,31 @@ class Journal extends Component {
                 <div class = "searchelement">
                   <Button style={{backgroundColor:"#6c757d", width:"100%"}} onClick={() => this.handleClearSearch()} >Clear</Button>
                 </div>
-            </div>
 
+            </div>
+            <div class = "moodselect">
+              <div id="select-mood" class="mood-content" >
+                <div class="moodelem">
+                  <h6 class="moodtext"> Filter entries by mood: </h6>
+                </div>
+                <div class="moodelem">
+                  <label>
+                    <input type="radio" value="good" name="mood" onChange={() => this.handleSearch("good", "mood")} />
+                    <img className="emojiSelect" src={happy} />
+                  </label>
+                  {" "}
+                  <label>
+                    <input type="radio" value="neutral" name="mood" onChange={() => this.handleSearch("neutral", "mood")} />
+                    <img className="emojiSelect" src={neutral} />
+                  </label>
+                  {" "}
+                  <label>
+                    <input type="radio" value="bad" name="mood" onChange={() => this.handleSearch("bad", "mood")} />
+                    <img className="emojiSelect" src={sad} />
+                  </label>
+                </div>
+              </div>
+            </div>
             <h2 class="titleText"> {this.state.todayOrResults} </h2>
             <Entries entryData={entries} removeEntry={this.removeEntry} editEntry={this.editEntry}/>
           </div>
