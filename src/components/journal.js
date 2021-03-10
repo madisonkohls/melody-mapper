@@ -2,8 +2,6 @@ import React, { Component } from "react"
 import Entries from "./entries"
 import Form from "./form"
 import {Button, FormGroup, Input, Label} from 'reactstrap'
-
-
 import axios from 'axios'
 
 // [0] is good, [8] is bad
@@ -87,6 +85,14 @@ let playlists = [
   ] // latin radio
 ];
 
+function uniqByKeepLast(data, key){
+  return [
+      ...new Map(
+        data.map(x => [key(x), x])
+      ).values()
+    ]
+}
+
 class Journal extends Component {
   userID = this.props.userID;
   constructor(props) {
@@ -147,11 +153,12 @@ class Journal extends Component {
   handleSubmit = entry => {
 
     this.setState({
-      entries: [...this.state.entries, entry],
+      entries: uniqByKeepLast([entry, ...this.state.entries], it => it._id),
       addEdit: "add a new",
       currTitle: "",
       currBody: "",
     })
+    console.log(this.state.entries)
   }
   handleSearch = (searchInp,searchCat) => { //searchCat has to be  a passed in string "title" or "mood"  
     //do the search for this.state.searchContents
@@ -170,7 +177,6 @@ class Journal extends Component {
          if(results.data[i].userid == this.userID)
             this.handleSubmit(results.data[i]);
        }
-       console.log(results);
       });
   }
 
