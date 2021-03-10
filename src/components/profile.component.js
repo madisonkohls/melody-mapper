@@ -4,7 +4,8 @@ import axios from 'axios'
 import Journal from "./journal"
 import {Button} from 'reactstrap'
 import '../App.css';
-
+import pic1 from '../assets/pic1.png';
+import pic2 from '../assets/pic2.png';
 // [0] is good, [8] is bad
 let playlists = [
   [
@@ -103,6 +104,7 @@ function Profile() {
     const [ musicGenre, setMusicGenre ] = useState(0)
     const [ mood, setMood ] = useState("")
     const [ moodlist, setMoodlist ] = useState("")
+
     let params = useParams()
 
     useEffect(() => {
@@ -157,7 +159,9 @@ function Profile() {
        }
        let playlist = playlists[genre][i]
        setMoodlist(playlist)
+
     });
+
 
     let onHomePage = (event) => {
         event.preventDefault();
@@ -165,22 +169,29 @@ function Profile() {
         window.location = '/'
     }
 
+
+
     return (
       <div>
-        <div class = "mainpage">
+        <div class = "mainpage" id="top">
             <div class = "logoutbutton">
             <Button style={{backgroundColor:"#4B7268"}} onClick={onHomePage}>Log out</Button>
             </div>
-            <div class = "topsection">
-            <h2 class="titleText">hey {firstName}!</h2>
-            <h6 class="subheader">your music genre is <em class="subheader-bold">{musicGenre}</em> and today you are feeling <em class="subheader-bold"> {mood} </em></h6>
-            <h6 class="subheader"> we'd recommend listening to this playlist while you write: </h6>
-            <div class = "spotify">
-            <iframe src={moodlist} width="500px" height="100px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            </div>
+            <div class = "proftopsection">
+              <div class = "noentries">
+                <img id="loginpic" src={pic2} alt="People listening to music" />
+              </div>
+              <h2 class="titleText">hey {firstName}!</h2>
+              <h6 class="subheader">your music genre is <em class="subheader-bold">{musicGenre}</em> and today you are feeling <em class="subheader-bold"> {mood} </em></h6>
+              <h6 class="subheader"> we'd recommend listening to this playlist while you write: </h6>
+              <div class = "spotify">
+                <iframe src={moodlist} width="500px" height="190px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              </div>
             </div>
         </div>
-        <Journal userID={params.id} mood={mood} />
+        <div id = "journalTag">
+          <Journal userID={params.id} mood={mood} />
+        </div>
       </div>
     )
 }

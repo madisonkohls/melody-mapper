@@ -14,7 +14,8 @@ class Journal extends Component {
       currTitle: "",
       currBody: "",
       addEdit: "add a new",
-      searchContents: ''
+      searchContents: '',
+      arrowValue: "next-button"
     }
   }
   clearForm = () => {
@@ -91,32 +92,45 @@ class Journal extends Component {
     this.setState({
       [name]: value})
      }
+  setArrow = () => {
+   if (this.state.arrowValue == "next-button") {
+     window.location="#journalTag"
+     this.setState({arrowValue: "prev-button"})
+   }
+   else {
+     window.location="#top"
+     this.setState({arrowValue: "next-button"})
+   }
+ }
 
   render() {
     const { entries } = this.state;
     return (
-      <div class = "journal">
-        <div class = "journalelement">
-          <h2 class = "titleText"> {this.state.addEdit} entry </h2>
-          <Form handleSubmit={this.handleSubmit} clearForm={this.clearForm} userid={this.props.userID} mood = {this.props.mood} title={this.state.currTitle} body = {this.state.currBody}/>
-        </div>
-        <div class = "journalelement">
-         <h2 class = "titleText"> search all entries </h2>
-          <div class = "searchcontainer">
-              <div class = "searchelement">
-                <Input
-                  placeholder="Search entries by title."
-                  className="searchbar"
-                  value = {this.state.searchContents}
-                  name = 'searchContents'
-                  onChange={this.handleChange}
-                  />
-              </div>
-              <div class = "searchelement">
-                <Button style={{backgroundColor:"#4B7268"}} onClick={() => this.handleSearch(this.state.searchContents)} >Search</Button>
-              </div>
+      <div>
+        <div class={this.state.arrowValue} onClick={this.setArrow}></div>
+        <div class = "journal">
+          <div class = "journalelement">
+            <h2 class = "titleText"> {this.state.addEdit} entry </h2>
+            <Form handleSubmit={this.handleSubmit} clearForm={this.clearForm} userid={this.props.userID} mood = {this.props.mood} title={this.state.currTitle} body = {this.state.currBody}/>
           </div>
-          <Entries entryData={entries} removeEntry={this.removeEntry} editEntry={this.editEntry}/>
+          <div class = "journalelement">
+           <h2 class = "titleText"> search all entries </h2>
+            <div class = "searchcontainer">
+                <div class = "searchelement">
+                  <Input
+                    placeholder="Search entries by title."
+                    className="searchbar"
+                    value = {this.state.searchContents}
+                    name = 'searchContents'
+                    onChange={this.handleChange}
+                    />
+                </div>
+                <div class = "searchelement">
+                  <Button style={{backgroundColor:"#4B7268"}} onClick={() => this.handleSearch(this.state.searchContents)} >Search</Button>
+                </div>
+            </div>
+            <Entries entryData={entries} removeEntry={this.removeEntry} editEntry={this.editEntry}/>
+          </div>
         </div>
       </div>
     )
