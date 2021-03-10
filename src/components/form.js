@@ -8,26 +8,20 @@ class Form extends Component {
     this.initialState = {
       title: "",
       body: "",
-      mood: this.props.mood,
     }
     this.state = this.initialState
   }
-  
   handleChange = event => {
     const{name, value} = event.target
     this.setState({
       [name]: value
     })
   }
-
   submitForm = () => {
-    const d = new Date();
-    const formattedDate = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric'});
-    console.log(formattedDate);
     const journal = {
       userid : this.props.userid, //this.userid
       text : this.state.body,
-      date : formattedDate,
+      date : new Date(),
       title: this.state.title,
       mood: this.props.mood,
     }
@@ -35,10 +29,36 @@ class Form extends Component {
     axios.post('http://localhost:8000/journals/add', journal)
       .then(res => console.log(res))
 
-
     this.props.handleSubmit(journal)
     this.setState(this.initialState)
   }
+
+  /*
+ componentDidMount() {
+   axios.get('http://localhost:5000/journals')
+     .then(response => {
+       journals =response.data;
+     })
+     .catch((error) => {
+       console.log(error);
+     })
+ }
+ 
+ //add substring stuff
+ searchJournals = journalTitle => {
+   var i = 0;
+   for( i = 0; i < journals.length; i++ )
+   {
+     if(journals[i].userid == this.props.userid)
+     {
+       if (journals[i].title == journalTitle)
+         {
+           return journals[i];
+         }
+     }
+   }
+ }
+ */
 
   clearForm = event => {
     this.setState(this.initialState);
@@ -87,3 +107,4 @@ class Form extends Component {
   }
 }
 export default Form;
+
