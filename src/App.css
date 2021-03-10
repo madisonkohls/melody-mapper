@@ -1,5 +1,8 @@
 body {
-  margin: 0;
+  margin: 15px;
+  border:15px solid #4B7268;
+  border-top-style: none;
+  border-bottom-style: none;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -50,7 +53,7 @@ code {
 .logoutbutton {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 25px;
   width: auto;
 }
 
@@ -142,7 +145,7 @@ code {
   margin-top: 10px;
 }
 #noentriespic {
-  width: 200px;
+  width: 150px;
   margin: 0px;
 }
 .noentries {
@@ -201,7 +204,47 @@ code {
   display: grid;
   grid-template-columns: 5fr 1fr 1fr;
   grid-gap: 10px;
+}
+.moodselect {
+  width: 100%;
+  font-size: 150%;
+  color: #4B7268;
+  border-style: none;
+  border-color: #ced4d9;
+  border-width: thin;
+  border-radius: 5px;
 
+}
+.mood-content{
+  display: flex;
+  text-align: left;
+}
+.moodelem{
+  text-align: center;
+  margin-top: 2px;
+  margin-right: 10px;
+}
+
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=radio] + img {
+  cursor: pointer;
+}
+
+[type=radio]:checked + img {
+  border: 2.5px solid #FAF790;
+  border-radius: 30px;
+}
+
+.emojiSelect{
+  height: 30px;
+  width: 30px;
+  margin-top: 0px;
 }
 
 .newentry{
@@ -211,6 +254,12 @@ code {
 .subheader {
   text-align: center;
   margin-top: 10px;
+}
+.moodtext{
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 2px;
+  color: #4B7268;
 }
 .subheader-bold {
   color: #4B7268;
