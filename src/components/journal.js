@@ -15,7 +15,10 @@ class Journal extends Component {
       currBody: "",
       addEdit: "add a new",
       searchContents: '',
-      arrowValue: "next-button"
+      arrowValue: "next-button",
+      todaysEntries:[],
+      isSearching: false,
+      todayOrResults: "today's entries"
     }
   }
   clearForm = () => {
@@ -67,7 +70,25 @@ class Journal extends Component {
     })
   }
 
+  handleClearSearch = () => {
+    this.setState({
+      entries: this.state.todaysEntries,
+      isSearching: false,
+      searchContents:"",
+      todayOrResults: "today's entries",
+    })
+  }
+
   handleSearch = (searchInp) => {
+    if (searchInp == "") return;
+    if (!this.state.isSearching) {
+      this.setState({todaysEntries: this.state.entries})
+    }
+    this.setState({
+      entries:[],
+      todayOrResults: "search results",
+      isSearching: true,
+    })
     //do the search for this.state.searchContents
     //this.setState({ entries: //search results
     //it's currently set up so the search will happen whenever the search field input changes
@@ -128,7 +149,11 @@ class Journal extends Component {
                 <div class = "searchelement">
                   <Button style={{backgroundColor:"#4B7268"}} onClick={() => this.handleSearch(this.state.searchContents)} >Search</Button>
                 </div>
+                <div class = "searchelement">
+                  <Button style={{backgroundColor:"#6c757d"}} onClick={() => this.handleClearSearch()} >Clear</Button>
+                </div>
             </div>
+            <h2 class="titleText"> {this.state.todayOrResults} </h2>
             <Entries entryData={entries} removeEntry={this.removeEntry} editEntry={this.editEntry}/>
           </div>
         </div>

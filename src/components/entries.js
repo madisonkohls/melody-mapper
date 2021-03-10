@@ -57,7 +57,6 @@ const Entries = (props) =>{
 
   return (
     <div className = "Entries">
-      <h2 class="titleText"> past entries </h2>
       <EntryBody entryData = {entryData} removeEntry={removeEntry} editEntry={editEntry}/>
     </div>
   )
