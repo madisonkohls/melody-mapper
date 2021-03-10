@@ -3,7 +3,7 @@ import {Button, Col, Row, Container} from 'reactstrap'
 import good from '../assets/happy.png';
 import neutral from '../assets/neutral.png';
 import bad from '../assets/sad.png';
-
+import pic1 from '../assets/pic1.png';
 
 const EntryBody = props => {
   const lines = props.entryData.map((line, index) => {
@@ -39,6 +39,7 @@ const EntryBody = props => {
     return (
       <div>
         <p>No entries yet.</p>
+        <img id="loginpic" src={pic1} alt="People listening to music" />
       </div>
     )
   }
