@@ -3,6 +3,9 @@ import Entries from "./entries"
 import Form from "./form"
 import {Button, FormGroup, Input, Label} from 'reactstrap'
 import axios from 'axios'
+import happy from '../assets/happy.png';
+import neutral from '../assets/neutral.png';
+import sad from '../assets/sad.png';
 
 // [0] is good, [8] is bad
 let playlists = [
@@ -124,7 +127,7 @@ class Journal extends Component {
    // console.log(tobeRemoved.title)
    // console.log(tobeRemoved.text)
     //working
-    axios.delete('http://localhost:8000/journals/delete', 
+    axios.delete('http://localhost:8000/journals/delete',
     {data:{id:this.userID, title:tobeRemoved.title, text:tobeRemoved.text}})
      .then((results) => {
        console.log(results.data);
@@ -160,7 +163,7 @@ class Journal extends Component {
     })
     console.log(this.state.entries)
   }
-  handleSearch = (searchInp,searchCat) => { //searchCat has to be  a passed in string "title" or "mood"  
+  handleSearch = (searchInp,searchCat) => { //searchCat has to be  a passed in string "title" or "mood"
     //do the search for this.state.searchContents
     //this.setState({ entries: //search results
     //it's currently set up so the search will happen whenever the search field input changes
@@ -168,7 +171,7 @@ class Journal extends Component {
     console.log('search');
     //return as array of journal
     var i;
-    axios.post('http://localhost:8000/journals/search-journals', 
+    axios.post('http://localhost:8000/journals/search-journals',
     {query:searchInp, searchType: searchCat}) //searchCat specifies if u are searching by mood or by title
     .then(results => {
       //only display result if it was made by your user id
@@ -186,10 +189,10 @@ class Journal extends Component {
     this.setState({ moodlist: playlists[0][0]})
   }
 
-  handleChange = event => {    
-    const{name, value} = event.target    
-    this.setState({      
-      [name]: value}) 
+  handleChange = event => {
+    const{name, value} = event.target
+    this.setState({
+      [name]: value})
      }
 
   render() {
@@ -201,7 +204,7 @@ class Journal extends Component {
           <Form handleSubmit={this.handleSubmit} clearForm={this.clearForm} userid={this.userID} mood = {this.props.mood} title={this.state.currTitle} body = {this.state.currBody}/>
         </div>
         <div class = "journalelement">
-         <h2 class = "titleText"> search all entries </h2>
+         <h2 class = "titleText"> search by title/mood </h2>
           <div class = "searchcontainer">
               <div class = "searchelement">
                 <Input
@@ -212,8 +215,26 @@ class Journal extends Component {
                   onChange={this.handleChange}
                   />
               </div>
+              <div class = "searchelement moodselect">
+                <div id="select-mood" class="mood-content" >
+                  <label>
+                    <input type="radio" value="good" name="mood" onChange={() => this.handleSearch("good", "mood")} />
+                    <img className="emojiSelect" src={happy} />
+                  </label>
+                  {" "}
+                  <label>
+                    <input type="radio" value="neutral" name="mood" onChange={() => this.handleSearch("neutral", "mood")} />
+                    <img className="emojiSelect" src={neutral} />
+                  </label>
+                  {" "}
+                  <label>
+                    <input type="radio" value="bad" name="mood" onChange={() => this.handleSearch("bad", "mood")} />
+                    <img className="emojiSelect" src={sad} />
+                  </label>
+                </div>
+              </div>
               <div class = "searchelement">
-                <Button style={{backgroundColor:"#4B7268"}} onClick={() => this.handleSearch(this.state.searchContents)} >Search</Button>
+                <Button style={{backgroundColor:"#4B7268"}} onClick={() => this.handleSearch(this.state.searchContents, "title")} >Search</Button>
               </div>
           </div>
           <Entries entryData={entries} removeEntry={this.removeEntry} editEntry={this.editEntry}/>
