@@ -6,6 +6,7 @@ import axios from 'axios'
 import happy from '../assets/happy.png';
 import neutral from '../assets/neutral.png';
 import sad from '../assets/sad.png';
+import clear from '../assets/clear.png';
 
 function uniqByKeepLast(data, key){
   return [
@@ -188,6 +189,11 @@ class Journal extends Component {
                   <label>
                     <input type="radio" value="bad" name="mood" onChange={() => this.handleSearch("bad", "mood")} />
                     <img className="emojiSelect" src={sad} />
+                  </label>
+                  {" "}
+                  <label>
+                    <input type="radio" value="clear" name="mood" onChange={() => this.handleClearSearch()} />
+                    <img className="emojiSelect" src={clear} />
                   </label>
                 </div>
               </div>
